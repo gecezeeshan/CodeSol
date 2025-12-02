@@ -1,0 +1,91 @@
+.text-start-force {
+    text-align: left !important;
+}
+.text-justify {
+    text-align: justify !important;
+}
+
+.skill-badge {
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+  background-color: #5f9ea0 !important; /* Teal or any Limitless color */
+}
+
+.skill-badge:hover {
+  background-color: #ccc !important; /* Teal or any Limitless color */
+  color: #fff !important;
+  transform: translateY(-2px);
+}
+
+/* Limitless Underline Tabs */
+.nav-tabs-underline .nav-link {
+    border: none !important;
+    padding-bottom: 0.75rem;
+    position: relative;
+    color: #333;
+    font-weight: 500;
+}
+
+.nav-tabs-underline .nav-link.active {
+    color: #111;
+}
+
+.nav-tabs-underline .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #2196f3; /* Blue underline same as screenshot */
+    margin: 0 auto;
+    transition: width 0.25s;
+}
+
+.nav-tabs-underline .nav-link.active::after {
+    width: 40px; /* Same underline length as your screenshot */
+}
+
+
+/* Pill Styled Tabs */
+
+.skill-pill {
+    display: inline-block;
+    background-color: #e3f2fd;        /* light blue */
+    color: #0d6efd;                   /* bootstrap primary blue */
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 3px 5px 0 0;
+    white-space: nowrap;
+}
+
+.skill-pill:hover {
+    background-color: #bbdefb;
+    cursor: default;
+}
+
+
+/* Reduce inner padding */
+.project-card-body {
+    padding: 1px !important;
+}
+
+/* Better spacing between cards */
+.col-xl-4 {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+/* Optional: reduce spacing around images */
+.card-img-actions {
+    margin-bottom: 0.5rem;
+}
+
+/* Make card height uniform */
+.card.h-100 {
+    display: flex;
+    flex-direction: column;
+}
