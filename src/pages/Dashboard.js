@@ -15,7 +15,7 @@ function Dashboard() {
 I specialize in architecting and developing applications using .NET Core, C#, Azure, SQL Server, SharePoint, React, Node.js, Python, and modern cloud-native patterns. From crafting responsive web apps to designing complex backend workflows, I turn ideas into polished digital products that are easy to use, simple to maintain, and ready for scale.
 
 Whether you need a custom business application, workflow automation, mobile app, cloud migration, or AI-enhanced capabilities — I can help you achieve it with clean architecture, modern engineering practices, and a results-driven mindset." />
- <Projects></Projects>
+          <Projects></Projects>
         </div>
         <div class="col-xl-6">
           <Skills></Skills>
@@ -23,7 +23,7 @@ Whether you need a custom business application, workflow automation, mobile app,
         </div>
       </div>
 
-       
+
     </>
 
 

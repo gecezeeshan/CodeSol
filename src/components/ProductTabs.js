@@ -6,45 +6,31 @@ const ProductTabs = (props) => {
   return (
     <div className="card1">
       <ul className="nav nav-tabs nav-tabs-underline nav-justified mb-0" role="tablist">
-
+        
         {/* Overview */}
         <li className="nav-item" role="presentation">
-          <a
-            className={`nav-link ${tab === "desc" ? "active" : ""}`}
-            href="javascript:void(0)"
-            data-toggle="tab"
+          <button
+            type="button"
+            className={`nav-link btn-reset ${tab === "desc" ? "active" : ""}`}
             onClick={() => setTab("desc")}
             role="tab"
           >
             Overview
-          </a>
+          </button>
         </li>
 
         {/* Specs */}
         <li className="nav-item" role="presentation">
-          <a
-            className={`nav-link ${tab === "spec" ? "active" : ""}`}
-            href="javascript:void(0)"
-            data-toggle="tab"
+          <button
+            type="button"
+            className={`nav-link btn-reset ${tab === "spec" ? "active" : ""}`}
             onClick={() => setTab("spec")}
             role="tab"
           >
             Skills
-          </a>
+          </button>
         </li>
 
-        {/* Shipping */}
-        {/* <li className="nav-item" role="presentation">
-          <a
-            className={`nav-link ${tab === "shipping" ? "active" : ""}`}
-            href="javascript:void(0)"
-            data-toggle="tab"
-            onClick={() => setTab("shipping")}
-            role="tab"
-          >
-            Shipping
-          </a>
-        </li> */}
       </ul>
 
       <div className="tab-content card-body">
@@ -54,16 +40,12 @@ const ProductTabs = (props) => {
           className={`tab-pane fade ${tab === "desc" ? "show active" : ""}`}
           role="tabpanel"
         >
-          <div class="d-flex align-items-start flex-nowrap text-start-force">
-            <div>
-
-              <ul class="pl-2 text-muted font-size-sm text-start-force">
-                {props.overview.map((item, key) => (
-                  <li key={key}>{item}</li>
-                ))}
-
-              </ul>
-            </div>
+          <div className="d-flex align-items-start flex-nowrap text-start-force">
+            <ul className="pl-2 text-muted font-size-sm text-start-force">
+              {props.overview.map((item, key) => (
+                <li key={key}>{item}</li>
+              ))}
+            </ul>
           </div>
         </div>
 
@@ -81,14 +63,6 @@ const ProductTabs = (props) => {
           </div>
         </div>
 
-        {/* Shipping Tab */}
-        {/* <div
-          className={`tab-pane fade ${tab === "shipping" ? "show active" : ""}`}
-          role="tabpanel"
-        >
-          DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred
-          pitchfork. Williamsburg whatever.
-        </div> */}
       </div>
     </div>
   );
