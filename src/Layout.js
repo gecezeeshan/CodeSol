@@ -8,7 +8,7 @@ export default function Layout() {
                 <h6 class="mt-1">Zeeshan Ali</h6>
                 <span class="mt-1 ml-2">SOLUTION ARCHITECT | CSPO | CSM </span>
                 <div class="navbar-brand wmin-0 mr-5">
-                    <a href="index.html" class="d-inline-block"></a>
+                    <a href="index.html" class="d-inline-block" aria-label="Home">Home</a>
                 </div>
             </div>
 
@@ -78,15 +78,15 @@ export default function Layout() {
 
                 <div class="navbar-collapse collapse" id="navbar-footer">
                     <span class="navbar-text">
-                        &copy; 2015 - 2018. <a href="#">Limitless Web App Kit</a> by <a
-                            href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+                        &copy; 2015 - 2018. <a href="/">Limitless Web App Kit</a> by <a
+                            href="http://themeforest.net/user/Kopyov" target="_blank" rel="noopener noreferrer">Eugene Kopyov</a>
                     </span>
 
                     <ul class="navbar-nav ml-lg-auto">
-                        <li class="nav-item"><a href="https://kopyov.ticksy.com/" class="navbar-nav-link" target="_blank"><i
+                        <li class="nav-item"><a href="https://kopyov.ticksy.com/" class="navbar-nav-link" target="_blank" rel="noopener noreferrer"><i
                             class="icon-lifebuoy mr-2"></i> Support</a></li>
                         <li class="nav-item"><a href="http://demo.interface.club/limitless/docs/" class="navbar-nav-link"
-                            target="_blank"><i class="icon-file-text2 mr-2"></i> Docs</a></li>
+                            target="_blank" rel="noopener noreferrer"><i class="icon-file-text2 mr-2"></i> Docs</a></li>
                         <li class="nav-item"><a
                             href="https://themeforest.net/item/limitless-responsive-web-application-kit/13080328?ref=kopyov"
                             class="navbar-nav-link font-weight-semibold"><span class="text-pink-400"><i
