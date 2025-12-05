@@ -16,6 +16,9 @@ app.use(express.json());
 const EMAIL_USER = process.env.EMAIL_USER; // e.g. 'your_email@example.com'
 const EMAIL_PASS = process.env.EMAIL_PASS; // e.g. app password
 
+
+console.log('EMAIL_USER:', EMAIL_USER);
+console.log('EMAIL_PASS:', EMAIL_PASS ? '[set]' : '[not set]');
 if (!EMAIL_USER || !EMAIL_PASS) {
     console.warn('Warning: EMAIL_USER or EMAIL_PASS not set. Set env vars before running server to send mail.');
 }
@@ -45,16 +48,34 @@ app.post('/send-email', async (req, res) => {
             text: [`Full name: ${fullName}`, `E-mail: ${email}`, `Phone: ${phone || '-'}`, `Company: ${company || '-'}`, '', 'Message:', message].join('\n')
         };
 
+
         if (!EMAIL_USER || !EMAIL_PASS) {
             // If no credentials provided, don't attempt to send — return success=false with guidance
-            return res.status(500).json({ ok: false, message: 'Mail credentials not configured on server. Set EMAIL_USER and EMAIL_PASS environment variables.' });
+            return res.status(500).json({
+                ok: false,
+                message: 'Mail credentials not configured on server. Set EMAIL_USER and EMAIL_PASS environment variables.',
+                debug: {
+                    EMAIL_USER,
+                    EMAIL_PASS: EMAIL_PASS ? '[set]' : '[not set]'
+                }
+            });
         }
 
-        const info = await transporter.sendMail(mailOptions);
-        return res.json({ ok: true, message: 'Email sent', info });
+    const info = await transporter.sendMail(mailOptions);
+    return res.json({ ok: true, message: 'Email sent', info, debug: { EMAIL_USER, EMAIL_PASS: EMAIL_PASS ? '[set]' : '[not set]' } });
     } catch (err) {
         console.error('Error sending email:', err);
-        return res.status(500).json({ ok: false, message: 'Failed to send email', error: err.message });
+        console.error('EMAIL_USER:', EMAIL_USER);
+        console.error('EMAIL_PASS:', EMAIL_PASS ? '[set]' : '[not set]');
+        return res.status(500).json({
+            ok: false,
+            message: 'Failed to send email',
+            error: err.message,
+            debug: {
+                EMAIL_USER,
+                EMAIL_PASS: EMAIL_PASS ? '[set]' : '[not set]'
+            }
+        });
     }
 });
 
