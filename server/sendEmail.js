@@ -5,6 +5,7 @@
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
+const crypto = require('crypto');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -18,7 +19,9 @@ const EMAIL_PASS = process.env.EMAIL_PASS; // e.g. app password
 
 
 console.log('EMAIL_USER:', EMAIL_USER);
+const EMAIL_PASS_HASH = EMAIL_PASS ? crypto.createHash('sha256').update(EMAIL_PASS).digest('hex') : null;
 console.log('EMAIL_PASS:', EMAIL_PASS ? '[set]' : '[not set]');
+console.log('EMAIL_PASS_SHA256:', EMAIL_PASS_HASH || '[not set]');
 if (!EMAIL_USER || !EMAIL_PASS) {
     console.warn('Warning: EMAIL_USER or EMAIL_PASS not set. Set env vars before running server to send mail.');
 }
@@ -32,6 +35,17 @@ const transporter = nodemailer.createTransport({
         pass: EMAIL_PASS
     }
 });
+
+// Log the transporter config we configured (don't print the raw password)
+const transporterConfigDebug = {
+    host: 'smtp-relay.brevo.com',
+    port: 587,
+    secure: false,
+    authUser: EMAIL_USER || '9d66f6001@smtp-brevo.com',
+    emailPassSet: !!EMAIL_PASS,
+    emailPassSha256: EMAIL_PASS_HASH
+};
+console.log('transporter config:', transporterConfigDebug);
 
 app.post('/send-email', async (req, res) => {
     try {
@@ -49,7 +63,7 @@ app.post('/send-email', async (req, res) => {
         };
 
 
-        if (!EMAIL_USER || !EMAIL_PASS) {
+    if (!EMAIL_USER || !EMAIL_PASS) {
             // If no credentials provided, don't attempt to send — return success=false with guidance
             return res.status(500).json({
                 ok: false,
@@ -61,19 +75,26 @@ app.post('/send-email', async (req, res) => {
             });
         }
 
-    const info = await transporter.sendMail(mailOptions);
-    return res.json({ ok: true, message: 'Email sent', info, debug: { EMAIL_USER, EMAIL_PASS: EMAIL_PASS ? '[set]' : '[not set]' } });
+        // Log mail options for debugging (no secrets)
+        console.log('mailOptions:', { from: mailOptions.from, to: mailOptions.to, subject: mailOptions.subject });
+
+        const info = await transporter.sendMail(mailOptions);
+        return res.json({ ok: true, message: 'Email sent', info, debug: { EMAIL_USER, EMAIL_PASS: EMAIL_PASS ? '[set]' : '[not set]', EMAIL_PASS_SHA256: EMAIL_PASS_HASH, transporter: transporterConfigDebug } });
     } catch (err) {
         console.error('Error sending email:', err);
         console.error('EMAIL_USER:', EMAIL_USER);
         console.error('EMAIL_PASS:', EMAIL_PASS ? '[set]' : '[not set]');
+        console.error('EMAIL_PASS_SHA256:', EMAIL_PASS_HASH);
+        console.error('transporter config:', transporterConfigDebug);
         return res.status(500).json({
             ok: false,
             message: 'Failed to send email',
             error: err.message,
             debug: {
                 EMAIL_USER,
-                EMAIL_PASS: EMAIL_PASS ? '[set]' : '[not set]'
+                EMAIL_PASS: EMAIL_PASS ? '[set]' : '[not set]',
+                EMAIL_PASS_SHA256: EMAIL_PASS_HASH,
+                transporter: transporterConfigDebug
             }
         });
     }
