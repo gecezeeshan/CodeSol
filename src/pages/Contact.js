@@ -66,7 +66,7 @@ export default function Contact() {
                     <div className="card-body">
                         <p className="mb-3">Sales and general inquires</p>
                         <p>
-                            <strong>gecezeeshan@gmail.com</strong>
+                            <strong>info@itransition.com</strong>
                         </p>
 
                         {/* <p className="mt-4"><strong>Want to join Itransition?</strong></p>

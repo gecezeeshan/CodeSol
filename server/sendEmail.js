@@ -1,6 +1,6 @@
 // Minimal Express server to accept contact form data and send email via Nodemailer
 // Usage (PowerShell):
-// $env:EMAIL_USER='gecezeeshan@gmail.com'; $env:EMAIL_PASS='YOUR_APP_PASSWORD'; npm run server
+// $env:EMAIL_USER='your_email@example.com'; $env:EMAIL_PASS='YOUR_APP_PASSWORD'; npm run server
 
 const express = require('express');
 const cors = require('cors');
@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Configure transporter using environment variables. This avoids committing credentials.
-const EMAIL_USER = process.env.EMAIL_USER; // e.g. 'gecezeeshan@gmail.com'
+const EMAIL_USER = process.env.EMAIL_USER; // e.g. 'your_email@example.com'
 const EMAIL_PASS = process.env.EMAIL_PASS; // e.g. app password
 
 if (!EMAIL_USER || !EMAIL_PASS) {
@@ -38,7 +38,7 @@ app.post('/send-email', async (req, res) => {
 
         const mailOptions = {
             from: EMAIL_USER || 'no-reply@example.com',
-            to: EMAIL_USER || 'gecezeeshan@gmail.com',
+            to: EMAIL_USER || 'no-reply@example.com',
             subject: `Contact form submission from ${fullName}`,
             text: [`Full name: ${fullName}`, `E-mail: ${email}`, `Phone: ${phone || '-'}`, `Company: ${company || '-'}`, '', 'Message:', message].join('\n')
         };
