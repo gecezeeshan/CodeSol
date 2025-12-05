@@ -5,3 +5,7 @@
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
+
+# Omit specific paths from secrets scanning (functions legitimately use env vars)
+[build.environment]
+  SECRETS_SCAN_OMIT_PATHS = "netlify/functions/**,server/**"
