@@ -100,6 +100,23 @@ app.post('/send-email', async (req, res) => {
     }
 });
 
+// Temporary debug route to inspect mailer configuration without exposing raw secrets
+app.get('/_mail-debug', (req, res) => {
+    try {
+        return res.json({
+            ok: true,
+            debug: {
+                EMAIL_USER,
+                EMAIL_PASS_SET: !!EMAIL_PASS,
+                EMAIL_PASS_SHA256: EMAIL_PASS_HASH,
+                transporter: transporterConfigDebug
+            }
+        });
+    } catch (err) {
+        return res.status(500).json({ ok: false, error: err.message });
+    }
+});
+
 app.listen(PORT, () => {
     console.log(`Email server listening on http://localhost:${PORT}`);
 });
