@@ -21,9 +21,11 @@ if (!EMAIL_USER || !EMAIL_PASS) {
 }
 
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp-relay.brevo.com',
+    port: 587,
+    secure: false, // TLS is used but not implicit
     auth: {
-        user: EMAIL_USER,
+        user: EMAIL_USER || '9d66f6001@smtp-brevo.com',
         pass: EMAIL_PASS
     }
 });
