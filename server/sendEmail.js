@@ -56,10 +56,19 @@ app.post('/send-email', async (req, res) => {
         }
 
         const mailOptions = {
-            from: email || 'no-reply@example.com',
-            to:  'gecezeeshan@gmail.com',
+            from: EMAIL_USER, // always your Brevo sender
+            to: 'gecezeeshan@gmail.com', // your receiving address
+            replyTo: email, // user's email for reply
             subject: `Contact form submission from ${fullName}`,
-            text: [`Full name: ${fullName}`, `E-mail: ${email}`, `Phone: ${phone || '-'}`, `Company: ${company || '-'}`, '', 'Message:', message].join('\n')
+            text: [
+                `Full name: ${fullName}`,
+                `E-mail: ${email}`,
+                `Phone: ${phone || '-'}`,
+                `Company: ${company || '-'}`,
+                '',
+                'Message:',
+                message
+            ].join('\n')
         };
 
 
