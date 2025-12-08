@@ -56,7 +56,7 @@ app.post('/send-email', async (req, res) => {
         }
 
         const mailOptions = {
-            from: EMAIL_USER || 'no-reply@example.com',
+            from: email || 'no-reply@example.com',
             to:  'gecezeeshan@gmail.com',
             subject: `Contact form submission from ${fullName}`,
             text: [`Full name: ${fullName}`, `E-mail: ${email}`, `Phone: ${phone || '-'}`, `Company: ${company || '-'}`, '', 'Message:', message].join('\n')
