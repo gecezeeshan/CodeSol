@@ -31,7 +31,8 @@ exports.handler = async (event, context) => {
 
         const mailInfo = await transporter.sendMail({
             from: EMAIL_USER || 'no-reply@example.com',
-            to: EMAIL_USER || 'no-reply@example.com',
+            to: "gecezeeshan@gmail.com",
+            replyTo: email, // user's email for reply
             subject: `New message from ${fullName}`,
             text:
                 `Name: ${fullName}\n` +
