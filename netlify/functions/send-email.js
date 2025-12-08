@@ -30,7 +30,7 @@ exports.handler = async (event, context) => {
         console.log('netlify transporter debug', { host: 'smtp-relay.brevo.com', authUser: EMAIL_USER, emailPassSet: !!EMAIL_PASS, emailPassSha256: EMAIL_PASS_HASH });
 
         const mailInfo = await transporter.sendMail({
-            from: EMAIL_USER || 'no-reply@example.com',
+            from: "gecezeeshan@gmail.com",
             to: "gecezeeshan@gmail.com",
             replyTo: email, // user's email for reply
             subject: `New message from ${fullName}`,
