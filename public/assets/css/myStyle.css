@@ -98,7 +98,7 @@
 }
 
 .content {
-    height: calc(100vh - 230px);
+    height: calc(100vh - 170px);
     /* Adjust based on header/footer height */
     overflow-y: auto;
 }

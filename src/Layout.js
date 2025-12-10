@@ -1,15 +1,15 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 export default function Layout() {
+    const location = useLocation();
+    const isActive = (path) => location.pathname === path ? "active" : "";
     return (
         <>
 
             <div class="navbar navbar-expand-md navbar-dark bg-teal-600">
                 <h6 class="mt-1">Zeeshan Ali</h6>
                 <span class="mt-1 ml-2">SOLUTION ARCHITECT | CSPO | CSM </span>
-                <div class="navbar-brand wmin-0 mr-5">
-                    <a href="index.html" class="d-inline-block" aria-label="Home">Home</a>
-                </div>
+                
             </div>
 
             <div class="navbar navbar-expand-md navbar-light">
@@ -18,7 +18,7 @@ export default function Layout() {
 
                     <ul class="navbar-nav navbar-nav-highlight">
                         <li class="nav-item">
-                            <Link to="/" class="navbar-nav-link active" style={{ marginRight: 20 }}> <i class="icon-home4 mr-2"></i>Home</Link>
+                            <Link to="/" className={`navbar-nav-link ${isActive("/")}`} style={{ marginRight: 20 }}> <i class="icon-home4 mr-2"></i>Home</Link>
                             {/* <a href="index.html" class="navbar-nav-link active">
                                 <i class="icon-home4 mr-2"></i>
                                 Dashboard
@@ -26,7 +26,7 @@ export default function Layout() {
                         </li>
 
                         <li class="nav-item nav-item-levels mega-menu-full">
-                            <Link to="/services" class="navbar-nav-link " style={{ marginRight: 20 }}> <i class="icon-briefcase mr-2"></i>Services</Link>
+                            <Link to="/services" className={`navbar-nav-link ${isActive("/services")}`} style={{ marginRight: 20 }}> <i class="icon-briefcase mr-2"></i>Services</Link>
                             {/* <a href="#" class="navbar-nav-link dropdown-toggle">
                                 <i class="icon-make-group mr-2"></i>
                                 Services
@@ -35,7 +35,7 @@ export default function Layout() {
                         </li>
 
                         <li class="nav-item">
-                            <Link to="/contact" class="navbar-nav-link" style={{ marginRight: 20 }}>
+                            <Link to="/contact" className={`navbar-nav-link ${isActive("/contact")}`} style={{ marginRight: 20 }}>
                                 <i class="icon-envelop3 mr-2"></i>Contact
                             </Link>
 
@@ -76,7 +76,7 @@ export default function Layout() {
                     </button>
                 </div>
 
-                <div class="navbar-collapse collapse" id="navbar-footer">
+                {/* <div class="navbar-collapse collapse" id="navbar-footer">
                     <span class="navbar-text">
                         &copy; 2015 - 2018. <a href="/">Limitless Web App Kit</a> by <a
                             href="http://themeforest.net/user/Kopyov" target="_blank" rel="noopener noreferrer">Eugene Kopyov</a>
@@ -92,7 +92,7 @@ export default function Layout() {
                             class="navbar-nav-link font-weight-semibold"><span class="text-pink-400"><i
                                 class="icon-cart2 mr-2"></i> Purchase</span></a></li>
                     </ul>
-                </div>
+                </div> */}
             </div>
 
         </>

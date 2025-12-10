@@ -10,11 +10,11 @@ function Dashboard() {
 
       <div class="row">
         <div class="col-xl-6">
-          <Card title="About me" body="I build smart, modern, and scalable digital solutions that help businesses launch faster, operate smoother, and grow confidently. My expertise spans across full-stack development, cloud engineering, AI-powered automation, and enterprise architecture — enabling me to deliver end-to-end systems that are reliable, secure, and built for real business value.
+          <Card title="About me" body={<>I build <span className="fw-semibold">smart, modern, and scalable digital solutions</span> that help businesses <span className="fw-semibold">launch faster, operate smoother, and grow confidently</span>. My expertise spans across <span className="fw-semibold">full-stack development, cloud engineering, AI-powered automation, and enterprise architecture</span> — enabling me to deliver <span className="fw-semibold">end-to-end systems that are reliable, secure, and built for real business value</span>.
 
-I specialize in architecting and developing applications using .NET Core, C#, Azure, SQL Server, SharePoint, React, Node.js, Python, and modern cloud-native patterns. From crafting responsive web apps to designing complex backend workflows, I turn ideas into polished digital products that are easy to use, simple to maintain, and ready for scale.
+<br /><br />I specialize in architecting and developing applications using <span className="fw-semibold">.NET Core, C#, Azure, SQL Server, SharePoint, React, Node.js, Python</span>, and <span className="fw-semibold">modern cloud-native patterns</span>. From crafting <span className="fw-semibold">responsive web apps</span> to designing <span className="fw-semibold">complex backend workflows</span>, I turn ideas into <span className="fw-semibold">polished digital products</span> that are <em>easy to use, simple to maintain, and ready for scale</em>.
 
-Whether you need a custom business application, workflow automation, mobile app, cloud migration, or AI-enhanced capabilities — I can help you achieve it with clean architecture, modern engineering practices, and a results-driven mindset." />
+<br /><br />Whether you need a <span className="fw-semibold">custom business application, workflow automation, mobile app, cloud migration, or AI-enhanced capabilities</span> — I can help you achieve it with <span className="fw-semibold">clean architecture, modern engineering practices, and a results-driven mindset</span>.</>} />
           <Projects></Projects>
         </div>
         <div class="col-xl-6">
