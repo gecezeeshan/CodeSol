@@ -13,6 +13,9 @@ export default function Layout() {
             </div>
 
             <div class="navbar navbar-expand-md navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-navigation" aria-controls="navbar-navigation" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <div class="navbar-collapse collapse" id="navbar-navigation">
 
@@ -67,7 +70,7 @@ export default function Layout() {
 
             </div>
 
-            <div class="navbar navbar-expand-lg navbar-light">
+            <div class="navbar navbar-expand-lg navbar-light d-none d-lg-flex">
                 <div class="text-center d-lg-none w-100">
                     <button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse"
                         data-target="#navbar-footer">
