@@ -7,8 +7,9 @@ export default function Layout() {
         <>
 
             <div class="navbar navbar-expand-md navbar-dark bg-teal-600">
+                <img src="/assets/images/favicons/android-chrome-192x192.png" alt="Logo" style={{ width: '40px', height: '40px', marginRight: '10px' }} />
                 <h6 class="mt-1">Zeeshan Ali</h6>
-                <span class="mt-1 ml-2">SOLUTION ARCHITECT | CSPO | CSM </span>
+                <span class="mt-1 ml-2 ml-auto">SOLUTION ARCHITECT | CSPO | CSM </span>
                 
             </div>
 
@@ -39,7 +40,7 @@ export default function Layout() {
 
                         <li class="nav-item">
                             <Link to="/contact" className={`navbar-nav-link ${isActive("/contact")}`} style={{ marginRight: 20 }}>
-                                <i class="icon-envelop3 mr-2"></i>Contact
+                                <i className="fas fa-envelope mr-2"></i>Contact
                             </Link>
 
                         </li>

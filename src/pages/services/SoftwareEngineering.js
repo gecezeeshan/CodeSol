@@ -44,8 +44,8 @@ export default function SoftwareEngineering() {
                     </div>
 
                     <div className="mt-4">
-                        <Link to="/contact" className="btn btn-primary btn-lg">
-                            Get Started
+                        <Link to="/contact" className="btn btn-teal btn-lg">
+                            <i className="fas fa-envelope mr-2"></i>Get Started
                         </Link>
                     </div>
                 </div>

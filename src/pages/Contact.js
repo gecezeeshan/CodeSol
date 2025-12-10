@@ -159,7 +159,7 @@ export default function Contact() {
                             </p>
 
                             <div className="text-end">
-                                <button type="submit" className="btn btn-primary">Submit form <i className="ph-paper-plane-tilt ms-2"></i></button>
+                                <button type="submit" className="btn btn-teal">Submit form <i className="ph-paper-plane-tilt ms-2"></i></button>
                             </div>
                         </form>
                     </div>

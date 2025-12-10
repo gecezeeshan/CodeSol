@@ -33,23 +33,40 @@
     color: #111;
 }
 
-.nav-tabs-underline .nav-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background-color: #2196f3;
-    /* Blue underline same as screenshot */
-    margin: 0 auto;
-    transition: width 0.25s;
-}
 
 .nav-tabs-underline .nav-link.active::after {
     width: 40px;
     /* Same underline length as your screenshot */
+}
+
+/* Remove the default nav-tabs bottom border so only the custom underline shows */
+.nav-tabs.nav-tabs-underline {
+    border-bottom: 0 !important;
+}
+
+/* Ensure active tab does not have any extra borders */
+.nav-tabs.nav-tabs-underline .nav-link.active {
+    border: none !important;
+}
+
+.nav-tabs-highlight,.nav-tabs-overline,.nav-tabs-underline {
+    --nav-tabs-underline-size: 2px;
+    --nav-tabs-underline-color: #00897B; /* teal underline */
+}
+
+/* Fallback / override: ensure underline uses the variable and wins over library defaults */
+.nav-tabs-underline .nav-link::after {
+    background-color: var(--nav-tabs-underline-color) !important;
+    height: var(--nav-tabs-underline-size) !important;
+}
+
+.nav-tabs.nav-tabs-underline {
+    border-bottom: 0 !important;
+}
+
+.nav-tabs.nav-tabs-underline .nav-link.active,
+.nav-tabs.nav-tabs-underline .nav-link.show {
+    border-bottom: none !important;
 }
 
 
@@ -57,9 +74,9 @@
 
 .skill-pill {
     display: inline-block;
-    background-color: #e3f2fd;
+    background-color: #025043;
     /* light blue */
-    color: #0d6efd;
+    color: #fff;
     /* bootstrap primary blue */
     padding: 4px 10px;
     border-radius: 20px;
@@ -70,7 +87,10 @@
 }
 
 .skill-pill:hover {
-    background-color: #bbdefb;
+    background-color: #fff;
+    border-color: #066e5c;  
+      border: solid 1px #025043;
+    color: #025043;
     cursor: default;
 }
 
