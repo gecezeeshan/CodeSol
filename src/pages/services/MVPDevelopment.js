@@ -216,7 +216,7 @@ export default function MVPDevelopment() {
              <Link to="/contact" className="btn btn-teal btn-block">
                                                              Let's Get Started →
                                                          </Link>
-                                                         <a href="https://wa.me/971502195152" target="_blank" className="btn btn-outline-teal btn-block mt-2">
+                                                         <a href="https://wa.me/971502195152" target="_blank" rel="noreferrer" className="btn btn-outline-teal btn-block mt-2">
                                                              Chat Now
                                                          </a>
             </section>
