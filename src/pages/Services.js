@@ -64,27 +64,31 @@ export default function Services() {
         <div>
 
             {/* Hero */}
-            <div className="page-header page-header-light mb-4">
-                <div className="row align-items-center">
-                    <div className="col-lg-6">
-                        <div className="page-title">
-                            <h6 className="display-6 font-weight">
-                                End-to-End Software & Automation Services
-                            </h6>
-                            <p className="lead text-muted">
-                                I help businesses accelerate their digital journey through 
-                                <strong> modern software engineering</strong>, 
-                                <strong> intelligent automation</strong>,
-                                <strong> data-driven solutions</strong>, and 
-                                <strong> personalized product development</strong>.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="col-lg-6 text-center">
-                        <img src="/assets/images/services.jpeg" alt="Services" className="img-fluid rounded shadow-sm" style={{ maxHeight: '300px', objectFit: 'cover' }} />
+            <section
+                className="text-white d-flex align-items-center mb-4"
+                style={{
+                    backgroundImage: "url('/assets/images/services.jpeg')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    padding: "120px 0",
+                    backgroundColor: "rgba(0,0,0,0.45)",
+                    backgroundBlendMode: "overlay",
+                    borderRadius: "6px"
+                }}
+            >
+                <div className="container">
+                    <div className="col-lg-10">
+                        <h1 className="display-4 font-weight-semibold mb-3">
+                            End-to-End Software & Automation Services
+                        </h1>
+                        <p className="lead" style={{ opacity: 0.9 }}>
+                            I help businesses accelerate their digital journey through <strong>modern software engineering</strong>,{" "}
+                            <strong>intelligent automation</strong>, <strong>data-driven solutions</strong>, and{" "}
+                            <strong>personalized product development</strong>.
+                        </p>
                     </div>
                 </div>
-            </div>
+            </section>
 
             {/* Services grid */}
             <div className="row">

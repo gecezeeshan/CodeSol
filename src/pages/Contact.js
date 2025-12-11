@@ -82,7 +82,7 @@ export default function Contact() {
 
                         <form onSubmit={handleSubmit} noValidate>
                             <div className="row mb-3">
-                                <label className="col-lg-4 col-form-label">Full name:</label>
+                                <label className="col-lg-4 col-form-label">Full name: *</label>
                                 <div className="col-lg-8">
                                     <input
                                         name="fullName"
@@ -90,14 +90,14 @@ export default function Contact() {
                                         onChange={handleChange}
                                         type="text"
                                         className="form-control"
-                                        placeholder="Full name"
+                                        placeholder="John Doe"
                                         required
                                     />
                                 </div>
                             </div>
 
                             <div className="row mb-3">
-                                <label className="col-lg-4 col-form-label">E-mail:</label>
+                                <label className="col-lg-4 col-form-label">E-mail: *</label>
                                 <div className="col-lg-8">
                                     <input
                                         name="email"
@@ -134,7 +134,7 @@ export default function Contact() {
                                         onChange={handleChange}
                                         type="text"
                                         className="form-control"
-                                        placeholder="Company"
+                                        placeholder="Optional"
                                     />
                                 </div>
                             </div>
@@ -155,7 +155,7 @@ export default function Contact() {
                             </div>
 
                             <p className="text-muted small">
-                                Please be informed that when you click the Send button Zeeshan Solution Group will process your personal data in accordance with our Privacy notice for the purpose of providing you with appropriate information.
+                                Please be informed that when you click the Send button, your personal data wil be processed in accordance with Privacy notice for the purpose of providing you with appropriate information.
                             </p>
 
                             <div className="text-end">

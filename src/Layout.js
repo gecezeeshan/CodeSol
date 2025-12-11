@@ -2,7 +2,13 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 
 export default function Layout() {
     const location = useLocation();
-    const isActive = (path) => location.pathname === path ? "active" : "";
+    const isActive = (path, { includeChildren = false } = {}) => {
+        const current = location.pathname;
+        if (includeChildren) {
+            return current === path || current.startsWith(`${path}/`) ? "active" : "";
+        }
+        return current === path ? "active" : "";
+    };
     return (
         <>
 
@@ -30,7 +36,7 @@ export default function Layout() {
                         </li>
 
                         <li class="nav-item nav-item-levels mega-menu-full">
-                            <Link to="/services" className={`navbar-nav-link ${isActive("/services")}`} style={{ marginRight: 20 }}> <i class="icon-briefcase mr-2"></i>Services</Link>
+                            <Link to="/services" className={`navbar-nav-link ${isActive("/services", { includeChildren: true })}`} style={{ marginRight: 20 }}> <i class="icon-briefcase mr-2"></i>Services</Link>
                             {/* <a href="#" class="navbar-nav-link dropdown-toggle">
                                 <i class="icon-make-group mr-2"></i>
                                 Services
