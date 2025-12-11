@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main Pages -->
+  <url>
+    <loc>https://zeeshansolutions.netlify.app/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://zeeshansolutions.netlify.app/services</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://zeeshansolutions.netlify.app/projects</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://zeeshansolutions.netlify.app/news</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://zeeshansolutions.netlify.app/contact</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Service Detail Pages -->
+  <url>
+    <loc>https://zeeshansolutions.netlify.app/services/ux-ui-design</loc>
+  </url>
+
+  <url>
+    <loc>https://zeeshansolutions.netlify.app/services/mvp-development</loc>
+  </url>
+
+  <url>
+    <loc>https://zeeshansolutions.netlify.app/services/consulting</loc>
+  </url>
+
+  <url>
+    <loc>https://zeeshansolutions.netlify.app/services/software-engineering</loc>
+  </url>
+
+  <url>
+    <loc>https://zeeshansolutions.netlify.app/services/ai-automation</loc>
+  </url>
+
+  <url>
+    <loc>https://zeeshansolutions.netlify.app/services/product-modernization</loc>
+  </url>
+
+  <url>
+    <loc>https://zeeshansolutions.netlify.app/services/web-scraping</loc>
+  </url>
+
+  <url>
+    <loc>https://zeeshansolutions.netlify.app/services/digital-marketing-automation</loc>
+  </url>
+
+  <url>
+    <loc>https://zeeshansolutions.netlify.app/services/whatsapp-automation</loc>
+  </url>
+
+</urlset>
