@@ -38,7 +38,7 @@ export default function WebScrapingDataExtraction() {
     const packages = [
         {
             name: "Targeted Pull",
-            price: "AED 2,900",
+            price: "AED 1,900",
             label: "Fast Start",
             features: [
                 "One-time scrape of defined sources",
@@ -49,7 +49,7 @@ export default function WebScrapingDataExtraction() {
         },
         {
             name: "Recurring Feeds",
-            price: "AED 6,900",
+            price: "AED 2,900",
             label: "Most Popular",
             features: [
                 "Recurring scrapes with scheduling",
@@ -61,7 +61,7 @@ export default function WebScrapingDataExtraction() {
         },
         {
             name: "Managed Data Ops",
-            price: "AED 5,500/mo",
+            price: "AED 2,500/mo",
             label: "",
             features: [
                 "Ongoing scraper maintenance and fixes",

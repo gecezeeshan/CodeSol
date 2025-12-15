@@ -50,7 +50,7 @@ export default function MVPDevelopment() {
     },
     {
         name: "MVP Build",
-        price: "AED 4,999",
+        price: "AED 3,999",
         label: "Most Popular",
         features: [
             "UI/UX for core features",

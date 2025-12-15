@@ -38,7 +38,7 @@ export default function SoftwareEngineering() {
     const packages = [
         {
             name: "Feature Pod",
-            price: "AED 5,500",
+            price: "AED 2,500",
             label: "Fast Start",
             features: [
                 "Scoped feature delivery with design handoff support",
@@ -49,7 +49,7 @@ export default function SoftwareEngineering() {
         },
         {
             name: "Full Product Build",
-            price: "AED 12,000",
+            price: "AED 4,000",
             label: "Most Popular",
             features: [
                 "End-to-end build (web or mobile) with backend APIs",
@@ -60,7 +60,7 @@ export default function SoftwareEngineering() {
         },
         {
             name: "Engineering Leadership",
-            price: "AED 7,500/mo",
+            price: "AED 2,500/mo",
             label: "",
             features: [
                 "Architecture guidance and code reviews",

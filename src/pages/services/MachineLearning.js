@@ -38,7 +38,7 @@ export default function MachineLearning() {
     const packages = [
         {
             name: "ML Discovery",
-            price: "AED 4,500",
+            price: "AED 2,500",
             label: "Fast Start",
             features: [
                 "Business framing, success metrics, and feasibility check",
@@ -49,7 +49,7 @@ export default function MachineLearning() {
         },
         {
             name: "Production Model",
-            price: "AED 12,500",
+            price: "AED 3,500",
             label: "Most Popular",
             features: [
                 "Data pipeline + feature store setup",
@@ -61,7 +61,7 @@ export default function MachineLearning() {
         },
         {
             name: "MLOps Retainer",
-            price: "AED 7,500/mo",
+            price: "AED 2,500/mo",
             label: "",
             features: [
                 "Model retraining cadence and automation",

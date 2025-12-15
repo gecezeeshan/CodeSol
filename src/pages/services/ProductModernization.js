@@ -38,7 +38,7 @@ export default function ProductModernization() {
     const packages = [
         {
             name: "Assessment & Plan",
-            price: "AED 4,200",
+            price: "AED 2,200",
             label: "Fast Start",
             features: [
                 "Codebase and architecture review",
@@ -50,7 +50,7 @@ export default function ProductModernization() {
         },
         {
             name: "Phased Modernization",
-            price: "AED 11,500",
+            price: "AED 3,500",
             label: "Most Popular",
             features: [
                 "Refactoring and modularization of core services",
@@ -62,7 +62,7 @@ export default function ProductModernization() {
         },
         {
             name: "Platform Evolution",
-            price: "AED 6,900/mo",
+            price: "AED 2,900/mo",
             label: "",
             features: [
                 "Ongoing modernization backlog delivery",

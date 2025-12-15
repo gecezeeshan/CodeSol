@@ -38,7 +38,7 @@ export default function DigitalMarketingAutomation() {
     const packages = [
         {
             name: "Launch & Nurture",
-            price: "AED 3,200",
+            price: "AED 1,200",
             label: "Fast Start",
             features: [
                 "Funnel and audience mapping workshop",
@@ -50,7 +50,7 @@ export default function DigitalMarketingAutomation() {
         },
         {
             name: "Revenue Accelerator",
-            price: "AED 8,900",
+            price: "AED 4,900",
             label: "Most Popular",
             features: [
                 "Multi-channel automations (email + social + retargeting)",
@@ -62,7 +62,7 @@ export default function DigitalMarketingAutomation() {
         },
         {
             name: "Ops Co-Pilot",
-            price: "AED 5,500/mo",
+            price: "AED 2,500/mo",
             label: "",
             features: [
                 "Ongoing automation tuning and QA",

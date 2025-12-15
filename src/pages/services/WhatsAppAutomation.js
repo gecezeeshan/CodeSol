@@ -38,7 +38,7 @@ export default function WhatsAppAutomation() {
     const packages = [
         {
             name: "Campaign Starter",
-            price: "AED 2,700",
+            price: "AED 1,700",
             label: "Fast Start",
             features: [
                 "Use-case discovery and messaging plan",
@@ -50,7 +50,7 @@ export default function WhatsAppAutomation() {
         },
         {
             name: "Growth Automation",
-            price: "AED 7,200",
+            price: "AED 3,200",
             label: "Most Popular",
             features: [
                 "Multi-step bots for leads, orders, and support triage",
@@ -62,7 +62,7 @@ export default function WhatsAppAutomation() {
         },
         {
             name: "CX Automation",
-            price: "AED 5,800/mo",
+            price: "AED 2,800/mo",
             label: "",
             features: [
                 "Ongoing flow optimization and A/B tests",

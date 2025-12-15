@@ -38,7 +38,7 @@ export default function Consulting() {
     const packages = [
         {
             name: "Discovery Workshop",
-            price: "AED 3,500",
+            price: "AED 1,500",
             label: "Fast Start",
             features: [
                 "Half-day (remote or onsite) workshop with key stakeholders",
@@ -50,7 +50,7 @@ export default function Consulting() {
         },
         {
             name: "Product Strategy Sprint",
-            price: "AED 9,500",
+            price: "AED 3,500",
             label: "Most Popular",
             features: [
                 "Two-week sprint to produce a clear roadmap and investment case",
@@ -63,7 +63,7 @@ export default function Consulting() {
         },
         {
             name: "CTO Advisory",
-            price: "AED 6,500/mo",
+            price: "AED 3,500/mo",
             label: "",
             features: [
                 "Architecture review and modernization plan",

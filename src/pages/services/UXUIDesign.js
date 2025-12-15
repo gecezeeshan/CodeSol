@@ -155,7 +155,7 @@ export default function UXUIDesign() {
                             },
                             {
                                 name: "Professional Website",
-                                price: "3,699",
+                                price: "2,699",
                                 label: "Most Popular",
                                 features: [
                                     "5–7 Pages",
