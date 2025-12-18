@@ -2,7 +2,7 @@ import ProductTabs from "./ProductTabs";
 
 function Projects() {
     return (
-        <div className="card">
+        <div className="card" id="projects">
             <div className="card-header header-elements-inline">
                 <h6 className="card-title">Enterprise Project Portfolio</h6>
             </div>

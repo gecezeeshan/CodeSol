@@ -135,3 +135,94 @@ body {
     min-height: auto !important;
     overflow: visible !important;
 }
+
+/* ===== HERO ICON BASE ===== */
+
+.hero-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  background: rgba(255,255,255,0.12);
+  transition: all 0.35s ease;
+}
+
+/* DEFAULT ICON COLOR (VISIBLE) */
+.hero-icon-initial i {
+  color: rgba(255,255,255,0.95);
+}
+
+/* HOVER ANIMATION */
+.hero-icon-wrapper:hover .hero-icon {
+  transform: translateY(-6px) scale(1.08);
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* COLOR MATCH ON HOVER */
+.hero-icon-wrapper:hover .text-info i {
+  color: #00bcd4;
+}
+.hero-icon-wrapper:hover .text-warning i {
+  color: #ff9800;
+}
+.hero-icon-wrapper:hover .text-success i {
+  color: #4caf50;
+}
+.hero-icon-wrapper:hover .text-danger i {
+  color: #f44336;
+}
+
+.hero-icon-label {
+  margin-top: 8px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+
+  /* VISIBLE BY DEFAULT */
+  opacity: 1;
+  color: rgba(255,255,255,0.9);
+
+  transition: all 0.25s ease;
+}
+
+/* Hover enhancement only */
+.hero-icon-wrapper:hover .hero-icon-label {
+  color: #ffffff;
+  font-weight: 600;
+ 
+}
+
+/* ===== HERO ICON GRID ===== */
+
+.hero-icon-grid {
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+  .hero-icon-grid {
+    grid-template-columns: repeat(2, 90px);
+  }
+}
+
+/* Tablet */
+@media (min-width: 576px) and (max-width: 991px) {
+  .hero-icon-grid {
+    grid-template-columns: repeat(4, 70px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+  .hero-icon-grid {
+    grid-template-columns: repeat(2, 70px);
+  }
+}
