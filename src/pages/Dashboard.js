@@ -1,5 +1,3 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
 import Card from '../components/Card'
 import Skills from '../components/Skills'
 import Projects from '../components/Projects'
