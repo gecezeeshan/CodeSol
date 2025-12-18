@@ -147,7 +147,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 28px;
-  background: rgba(255,255,255,0.12);
+  background: rgb(255, 255, 255, 0.7);
   transition: all 0.35s ease;
 }
 
@@ -179,7 +179,7 @@ body {
 
 .hero-icon-label {
   margin-top: 8px;
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-align: center;
