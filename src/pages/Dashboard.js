@@ -10,6 +10,7 @@ function Dashboard() {
       <div
         className="card  shadow-sm mb-4 text-white"
         style={{
+            backgroundImage: 'url(/assets/images/hero-bg3.png)',
           border: 'solid 1px #28a745',
           backgroundColor: '#a6adaaff',
           
@@ -20,7 +21,7 @@ function Dashboard() {
 
             {/* LEFT */}
             <div className="col-lg-7">
-              <span className="badge badge-flat border-dark fill-red text-dark text-light text-uppercase mb-3">
+              <span className="badge badge-flat border-dark  text-dark text-white text-uppercase mb-3">
                 Enterprise-grade • Cloud-native • Automation-driven
               </span>
 
