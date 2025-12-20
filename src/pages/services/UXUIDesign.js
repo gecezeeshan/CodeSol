@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export default function UXUIDesign() {
     return (
@@ -265,9 +264,6 @@ export default function UXUIDesign() {
                                         </ul>
 
                                         <div className="mt-4">
-                                            <Link to="/contact" className="btn btn-teal btn-block">
-                                                Let's Get Started →
-                                            </Link>
                                             <a href="https://wa.me/971502195152" target="_blank" rel="noreferrer" className="btn btn-outline-teal btn-block mt-2">
                                                 Chat Now
                                             </a>
@@ -283,10 +279,9 @@ export default function UXUIDesign() {
             {/* -------------------- CTA SECTION -------------------- */}
             <section className="py-5 bg-white text-center">
                 <h2 className="font-weight-bold mb-4">Ready to Create Exceptional Experiences?</h2>
-                <Link to="/contact" className="btn btn-teal btn-lg px-4 py-2">
-                    <i className="fas fa-envelope mr-2"></i>
-                    Get Started
-                </Link>
+                <a href="https://wa.me/971502195152" target="_blank" rel="noreferrer" className="btn btn-outline-teal btn-block mt-2">
+                    Chat Now
+                </a>
             </section>
         </div>
     );

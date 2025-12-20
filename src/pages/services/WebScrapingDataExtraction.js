@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export default function WebScrapingDataExtraction() {
     const approach = [
@@ -188,15 +187,6 @@ export default function WebScrapingDataExtraction() {
                                                 </li>
                                             ))}
                                         </ul>
-
-                                        <div className="mt-4">
-                                            <Link to="/contact" className="btn btn-teal btn-block">
-                                                Start This Plan
-                                            </Link>
-                                            <Link to="/contact" className="btn btn-outline-teal btn-block mt-2">
-                                                Book a Discovery Call
-                                            </Link>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -208,12 +198,9 @@ export default function WebScrapingDataExtraction() {
             {/* -------------------- CTA -------------------- */}
             <section className="py-5 bg-white text-center">
                 <h2 className="font-weight-bold mb-4">Ready to turn the web into clean data?</h2>
-              <Link to="/contact" className="btn btn-teal btn-block">
-                                                              Let's Get Started →
-                                                          </Link>
-                                                          <a href="https://wa.me/971502195152" target="_blank" rel="noreferrer" className="btn btn-outline-teal btn-block mt-2">
-                                                              Chat Now
-                                                          </a>
+                <a href="https://wa.me/971502195152" target="_blank" rel="noreferrer" className="btn btn-outline-teal btn-block mt-2">
+                    Chat Now
+                </a>
             </section>
         </div>
     );

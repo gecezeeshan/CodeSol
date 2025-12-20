@@ -46,9 +46,9 @@ export default function Layout() {
                             </li>
 
                             <li class="nav-item">
-                                <Link to="/contact" className={`navbar-nav-link ${isActive("/contact")}`} style={{ marginRight: 20 }}>
-                                    <i className="fas fa-envelope mr-2"></i>Contact
-                                </Link>
+                            <Link to="/contact" className={`navbar-nav-link ${isActive("/contact")}`} style={{ marginRight: 20 }}>
+                                <i class="icon-envelop3 mr-2"></i>Contact
+                            </Link>
 
                             </li>
                         </ul>

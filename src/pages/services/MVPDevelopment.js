@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export default function MVPDevelopment() {
     const approach = [
@@ -195,13 +194,9 @@ export default function MVPDevelopment() {
                                         </ul>
 
                                         <div className="mt-4">
-                                            {/* <Link to="/contact" className="btn btn-teal btn-block">
-                                                Start This Plan
-                                            </Link> */}
-                                            <Link to="/contact" className="btn btn-outline-teal btn-block mt-2">
-                                                Get 
-                                            </Link>
-                                        </div>
+                                            {/*
+*/}
+</div>
                                     </div>
                                 </div>
                             </div>
@@ -213,12 +208,9 @@ export default function MVPDevelopment() {
             {/* -------------------- CTA -------------------- */}
             <section className="py-5 bg-white text-center">
                 <h2 className="font-weight-bold mb-4">Ready to validate your product?</h2>
-             <Link to="/contact" className="btn btn-teal btn-block">
-                                                             Let's Get Started →
-                                                         </Link>
-                                                         <a href="https://wa.me/971502195152" target="_blank" rel="noreferrer" className="btn btn-outline-teal btn-block mt-2">
-                                                             Chat Now
-                                                         </a>
+                <a href="https://wa.me/971502195152" target="_blank" rel="noreferrer" className="btn btn-outline-teal btn-block mt-2">
+                    Chat Now
+                </a>
             </section>
         </div>
     );
