@@ -8,20 +8,19 @@ function Dashboard() {
     <>
       {/* ================= HERO SECTION ================= */}
       <div
-        className="card border-0 shadow-sm mb-4 text-white"
+        className="card  shadow-sm mb-4 text-white"
         style={{
-          backgroundImage:
-            "url('/assets/images/hero-bg.png'",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
+          border: 'solid 1px #28a745',
+          backgroundColor: '#a6adaaff',
+          
+       }}
       >
         <div className="card-body py-5">
           <div className="row align-items-center">
 
             {/* LEFT */}
             <div className="col-lg-7">
-              <span className="badge badge-flat border-light text-light text-uppercase mb-3">
+              <span className="badge badge-flat border-dark fill-red text-dark text-light text-uppercase mb-3">
                 Enterprise-grade • Cloud-native • Automation-driven
               </span>
 

@@ -149,11 +149,21 @@ body {
   font-size: 28px;
   background: rgb(255, 255, 255, 0.7);
   transition: all 0.35s ease;
+  
+}
+.hero-icon-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 10px;
 }
 
 /* DEFAULT ICON COLOR (VISIBLE) */
 .hero-icon-initial i {
   color: rgba(255,255,255,0.95);
+  
 }
 
 /* HOVER ANIMATION */
@@ -209,7 +219,7 @@ body {
 /* Desktop */
 @media (min-width: 992px) {
   .hero-icon-grid {
-    grid-template-columns: repeat(2, 90px);
+    grid-template-columns: repeat(2, 150px);
   }
 }
 
@@ -225,4 +235,59 @@ body {
   .hero-icon-grid {
     grid-template-columns: repeat(2, 70px);
   }
+}
+
+/* Dashboard layout */
+.dashboard-hero {
+    border-radius: 6px;
+    padding: 90px 0;
+    width: 100%;
+}
+
+.dashboard-section {
+    width: 100%;
+    padding: 72px 0;
+}
+
+.dashboard-section.bg-light {
+    background-color: #f7f7f7 !important;
+}
+
+/* Fixed header */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1200;
+    width: 100%;
+}
+
+.with-fixed-header {
+    padding-top: 90px !important;
+}
+
+@media (max-width: 768px) {
+    .with-fixed-header {
+        padding-top: 180px;
+    }
+}
+
+.fixed-header .navbar {
+    min-height: auto;
+    padding: 6px 1rem;
+}
+
+.fixed-header .navbar .navbar-nav-link {
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+}
+
+.fixed-header h6 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.fixed-header span {
+    font-size: 0.9rem;
 }
