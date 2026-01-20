@@ -17,7 +17,7 @@ export default function Layout() {
                     <img src="/assets/images/favicons/android-chrome-192x192.png" alt="Logo" style={{ width: '40px', height: '40px', marginRight: '10px' }} />
                     <h6 class="mt-1">Zeeshan Ali</h6>
                     <span class="mt-1 ml-2 ml-auto">SOLUTION ARCHITECT | CSPO | CSM </span>
-                    
+
                 </div>
 
                 <div class="navbar navbar-expand-md navbar-light">
@@ -46,9 +46,15 @@ export default function Layout() {
                             </li>
 
                             <li class="nav-item">
-                            <Link to="/contact" className={`navbar-nav-link ${isActive("/contact")}`} style={{ marginRight: 20 }}>
-                                <i class="icon-envelop3 mr-2"></i>Contact
-                            </Link>
+                                <Link to="/blog" class="navbar-nav-link" style={{ marginRight: 20 }}>
+                                    <i class="icon-file-text2 mr-2"></i>Blog
+                                </Link>
+                            </li>
+
+                            <li class="nav-item">
+                                <Link to="/contact" className={`navbar-nav-link ${isActive("/contact")}`} style={{ marginRight: 20 }}>
+                                    <i class="icon-envelop3 mr-2"></i>Contact
+                                </Link>
 
                             </li>
                         </ul>
@@ -64,7 +70,7 @@ export default function Layout() {
                 <div class="content-wrapper">
 
                     {/* Content area */}
-                    <div class="content pt-3" style={{ paddingLeft:"0px", paddingRight:"0px", }}>
+                    <div class="content pt-3" style={{ paddingLeft: "0px", paddingRight: "0px", }}>
                         {/* <div id="root"> </div> */}
                         <Outlet></Outlet>
 

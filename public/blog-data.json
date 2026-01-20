@@ -1,0 +1,207 @@
+{
+    "categories": [
+        {
+            "id": "aws-core",
+            "title": "AWS Core Infrastructure",
+            "topics": [
+                {
+                    "id": "compute",
+                    "title": "Compute",
+                    "blogs": [
+                        {
+                            "id": "ec2-basics",
+                            "title": "EC2: The Foundation of AWS Compute",
+                            "content": "<h2>Understanding EC2 in Simple Terms</h2><p>When I first started working with AWS, <strong>EC2</strong> was one of those services that sounded complicated. But once you understand it, it’s actually very simple.</p><p><strong>EC2 (Amazon Elastic Compute Cloud)</strong> is basically a way to get a <strong>virtual computer on the internet</strong>. Instead of buying a physical server, installing hardware, and worrying about maintenance, AWS gives you a ready-to-use server in minutes.</p><p>You can think of it like <em>renting a computer</em>, but only for as long as you need it.</p><hr /><h3>What Kind of Server Do You Get?</h3><p>One thing I really like about EC2 is the <strong>freedom of choice</strong>.</p><p>You can pick the operating system you’re comfortable with. Some common ones are:</p><ul><li><strong>Amazon Linux</strong></li><li><strong>Ubuntu 22.04 LTS</strong></li><li><strong>Red Hat Enterprise Linux</strong></li><li><strong>Windows Server</strong></li></ul><p>You also choose how powerful the server should be. For example:</p><ul><li>A small instance like <strong>t3.micro</strong> is perfect for learning or a personal blog</li><li>A medium instance works well for <strong>production websites</strong></li><li>Larger or specialized instances are available if you need more <strong>CPU, memory, or GPU power</strong></li></ul><p>You don’t have to overthink this at the start. <strong>The best part is, you can change it later.</strong></p><hr /><h3>Storage, CPU, and Flexibility</h3><p>Every EC2 instance comes with storage. Usually, there’s a <strong>root disk</strong> where the operating system lives, and you can add extra disks if your app needs more space.</p><p>AWS now recommends <strong>gp3 storage</strong>, which is faster and cheaper than older options. For most blogs or websites, this works perfectly.</p><p>What really makes EC2 powerful is its <strong>flexibility</strong>. Today you might be running a simple blog. Tomorrow you might want to try a different database, framework, or even a new operating system.</p><p>With EC2, <strong>you’re not locked into one setup</strong>.</p><hr /><h3>Why EC2 Makes Sense</h3><p>The biggest benefit of EC2 is that you <strong>only pay for what you use</strong>. There’s no need to buy expensive hardware upfront.</p><p>If your website suddenly gets more traffic, you can <strong>increase the server size</strong> or <strong>add more servers</strong>. When traffic goes down, you can scale back.</p><p>This makes EC2 <strong>cost-effective and practical</strong>, especially for startups and personal projects.</p><p>I’ve seen cases where traffic spikes unexpectedly. With EC2, scaling up is much easier than rebuilding everything from scratch.</p><hr /><h3>What About Security?</h3><p>Security is something AWS takes seriously, and EC2 gives you <strong>good control</strong> over it.</p><p>Your server lives inside a <strong>Virtual Private Cloud (VPC)</strong>, which isolates it from others. You control access using <strong>security groups</strong>, which are basically firewall rules.</p><p>You also use <strong>IAM (Identity and Access Management)</strong> to decide who can access what.</p><p>In simple terms, <strong>you decide who can enter your server and how</strong>.</p><hr /><h3>How You Actually Use EC2</h3><p>Setting up EC2 is straightforward:</p><ol><li>You choose an image (called an <strong>AMI</strong>) that defines the operating system</li><li>You pick the <strong>server size, storage, and network settings</strong></li><li>Once it’s launched, you connect to it:<ul><li><strong>SSH</strong> if it’s a Linux server</li><li><strong>RDP</strong> if it’s a Windows server</li></ul></li></ol><p>After that, it feels like a normal computer. You install software, deploy your app, and start building.</p><hr /><h3>Final Thoughts</h3><p>EC2 gives you <strong>control without forcing you to buy hardware</strong> or commit long-term. Whether you’re hosting a blog, building an API, or just experimenting, it’s a service that <strong>grows with you</strong>.</p><p>You can start small, learn at your own pace, and scale when you’re ready.</p><p><strong>And that’s why EC2 is usually the first AWS service I recommend to anyone getting started.</strong></p>"
+                        },
+                        {
+                            "id": "ec2-pricing",
+                            "title": "On-Demand, Reserved, and Spot Instances",
+                            "content": "<h2>Pricing Is an Architectural Choice</h2><p>On-Demand gives flexibility, Reserved reduces long-term cost, and Spot trades reliability for savings.</p><p>Good architectures mix these models instead of relying on one.</p>"
+                        },
+                        {
+                            "id": "asg",
+                            "title": "Auto Scaling Groups Explained",
+                            "content": "<h2>Scaling Without Fear</h2><p>Auto Scaling Groups ensure your system can grow and heal automatically.</p><p>Scaling is not about traffic spikes only, it is about confidence.</p>"
+                        },
+                        {
+                            "id": "elb",
+                            "title": "ALB vs NLB: When Each Matters",
+                            "content": "<h2>Layer 7 vs Layer 4</h2><p>Most applications work perfectly with ALB. NLB is used when performance and protocol control matter.</p>"
+                        }
+                    ]
+                },
+                {
+                    "id": "storage",
+                    "title": "Storage",
+                    "blogs": [
+                        {
+                            "id": "s3",
+                            "title": "S3 Is More Than Storage",
+                            "content": "<h2>S3 as a Platform</h2><p>S3 is not a file system. It is a globally durable object store.</p><p>Once you understand this, many design decisions become obvious.</p>"
+                        },
+                        {
+                            "id": "ebs-efs",
+                            "title": "EBS vs EFS vs Glacier",
+                            "content": "<h2>Access Pattern First</h2><p>Choosing storage is about how data is accessed, not how large it is.</p>"
+                        }
+                    ]
+                },
+                {
+                    "id": "databases",
+                    "title": "Databases",
+                    "blogs": [
+                        {
+                            "id": "rds-aurora",
+                            "title": "RDS vs Aurora: Architectural Differences",
+                            "content": "<h2>Managed Does Not Mean Identical</h2><p>RDS and Aurora solve similar problems but behave differently under load and failure.</p>"
+                        },
+                        {
+                            "id": "dynamodb",
+                            "title": "Thinking in DynamoDB",
+                            "content": "<h2>Design for Queries</h2><p>DynamoDB forces you to design around access patterns instead of tables.</p>"
+                        }
+                    ]
+                },
+                {
+                    "id": "networking",
+                    "title": "Networking (VPC)",
+                    "blogs": [
+                        {
+                            "id": "vpc",
+                            "title": "VPC Is Your Cloud Data Center",
+                            "content": "<h2>Isolation Comes First</h2><p>Everything in AWS networking starts with a clean VPC design.</p>"
+                        },
+                        {
+                            "id": "sg-vs-nacl",
+                            "title": "Security Groups vs NACL",
+                            "content": "<h2>Stateful vs Stateless</h2><p>Security groups are used daily. NACLs are coarse-grained controls.</p>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "aws-ha",
+            "title": "Scalability, HA & Performance",
+            "topics": [
+                {
+                    "id": "ha-dr",
+                    "title": "High Availability & DR",
+                    "blogs": [
+                        {
+                            "id": "dr-strategies",
+                            "title": "Choosing the Right DR Strategy",
+                            "content": "<h2>DR Is a Business Decision</h2><p>Backup, pilot light, warm standby, and multi-region are cost vs risk decisions.</p>"
+                        }
+                    ]
+                },
+                {
+                    "id": "cdn-routing",
+                    "title": "Load Balancing & CDN",
+                    "blogs": [
+                        {
+                            "id": "cloudfront",
+                            "title": "CloudFront and Route 53 Together",
+                            "content": "<h2>Latency Is User Experience</h2><p>Global routing becomes critical as users spread geographically.</p>"
+                        }
+                    ]
+                },
+                {
+                    "id": "monitoring",
+                    "title": "Monitoring & Scaling",
+                    "blogs": [
+                        {
+                            "id": "cloudwatch",
+                            "title": "Monitoring Without Alert Fatigue",
+                            "content": "<h2>Metrics Before Logs</h2><p>Good monitoring answers questions before alerts fire.</p>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "aws-security",
+            "title": "Security & Access",
+            "topics": [
+                {
+                    "id": "iam",
+                    "title": "IAM",
+                    "blogs": [
+                        {
+                            "id": "iam-model",
+                            "title": "How to Think About IAM",
+                            "content": "<h2>Least Privilege Is a Mindset</h2><p>IAM mistakes are architectural mistakes.</p>"
+                        }
+                    ]
+                },
+                {
+                    "id": "security-services",
+                    "title": "Security Services",
+                    "blogs": [
+                        {
+                            "id": "kms-secrets",
+                            "title": "Secrets, Keys, and Encryption",
+                            "content": "<h2>Encryption Is Not Optional</h2><p>KMS and Secrets Manager remove excuses for insecure systems.</p>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "aws-integration",
+            "title": "Serverless, Integration & Cost",
+            "topics": [
+                {
+                    "id": "serverless",
+                    "title": "Serverless",
+                    "blogs": [
+                        {
+                            "id": "lambda",
+                            "title": "Thinking in Serverless",
+                            "content": "<h2>Event First Thinking</h2><p>Serverless shines when you stop thinking about servers.</p>"
+                        }
+                    ]
+                },
+                {
+                    "id": "cost",
+                    "title": "Cost Optimization",
+                    "blogs": [
+                        {
+                            "id": "cost-architecture",
+                            "title": "Cost Is Part of Architecture",
+                            "content": "<h2>Cost Is Not an Afterthought</h2><p>Every architectural decision has cost implications.</p>"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "aws-governance",
+            "title": "Edge & Governance",
+            "topics": [
+                {
+                    "id": "edge",
+                    "title": "Edge & Global",
+                    "blogs": [
+                        {
+                            "id": "global-services",
+                            "title": "When Global Services Matter",
+                            "content": "<h2>Latency Drives Design</h2><p>Global Accelerator and Route 53 solve different global problems.</p>"
+                        }
+                    ]
+                },
+                {
+                    "id": "governance",
+                    "title": "Management & Governance",
+                    "blogs": [
+                        {
+                            "id": "governance",
+                            "title": "Keeping AWS Accounts Under Control",
+                            "content": "<h2>Governance Enables Speed</h2><p>CloudTrail and Organizations protect teams at scale.</p>"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

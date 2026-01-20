@@ -13,7 +13,7 @@ import WhatsAppAutomation from './pages/services/WhatsAppAutomation';
 import DigitalMarketingAutomation from './pages/services/DigitalMarketingAutomation';
 import WebScrapingDataExtraction from './pages/services/WebScrapingDataExtraction';
 import MachineLearning from './pages/services/MachineLearning';
-
+import Blog from './pages/Blog';
 function App() {
   return (
     <div className="App">
@@ -32,6 +32,7 @@ function App() {
             <Route path="/services/marketing" element={<DigitalMarketingAutomation />} />
             <Route path="/services/scraping" element={<WebScrapingDataExtraction />} />
             <Route path="/services/ml" element={<MachineLearning />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
           </Route>
         </Routes>
