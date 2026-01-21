@@ -1,0 +1,187 @@
+<div class="fw-semibold fs-lg text-dark mb-2">
+  EBS vs EFS vs Glacier — <u>Choosing Storage Based on How It’s Used</u>
+</div>
+
+<p class="text-muted fs-base lh-base">
+  Once storage moves beyond simple file uploads, the next question usually becomes:
+  <span class="fw-semibold text-decoration-underline">where should this data live?</span>
+  AWS offers multiple storage options, and while they may look similar on the surface,
+  they solve <em>very different problems</em>.
+</p>
+
+<p class="fs-base lh-base">
+  The most reliable way to choose between
+  <span class="fw-semibold">EBS</span>,
+  <span class="fw-semibold">EFS</span>, and
+  <span class="fw-semibold">Glacier</span>
+  is <em>not</em> by size or cost alone, but by
+  <mark class="fw-semibold">how the data is accessed</mark>.
+</p>
+
+<div class="fw-semibold fs-base text-dark mt-4">
+  EBS — <u>Storage That Lives With a Server</u>
+</div>
+
+<p class="fs-base lh-base">
+  EBS behaves like a <span class="fw-semibold">traditional hard drive</span> attached to a single EC2 instance.
+  It is <em>fast</em>, <em>consistent</em>, and designed for workloads that expect
+  <span class="fw-semibold text-decoration-underline">local disk access</span>.
+</p>
+
+<p class="fs-base lh-base">
+  This makes EBS a <span class="fw-semibold">natural fit</span> for operating systems, application data,
+  and databases. When an EC2 instance reads or writes to EBS, it feels
+  <em>no different from working with a local disk</em>.
+</p>
+
+<p class="fs-base lh-base">
+  The key thing to remember is that EBS is tied to a specific
+  <span class="fw-semibold text-decoration-underline">Availability Zone</span>.
+  While snapshots can be used for backup and recovery,
+  the volume itself belongs to <em>one instance at a time</em>.
+</p>
+
+<ul class="fs-base lh-base">
+  <li><span class="fw-semibold">OS and application disks</span></li>
+  <li><span class="fw-semibold">Databases</span> running on EC2</li>
+  <li>Workloads requiring <u>low latency</u> and <u>high IOPS</u></li>
+</ul>
+
+<div class="fw-semibold fs-base text-dark mt-4">
+  EFS — <u>Shared Storage for Multiple Servers</u>
+</div>
+
+<p class="fs-base lh-base">
+  EFS takes a <span class="fw-semibold">completely different approach</span>.
+  Instead of attaching storage to one server,
+  it provides a <mark>shared file system</mark> that
+  <em>multiple EC2 instances</em> can access at the same time.
+</p>
+
+<p class="fs-base lh-base">
+  This becomes critical when applications need
+  <span class="fw-semibold text-decoration-underline">shared access</span> to files.
+  Content management systems, shared uploads,
+  and multi-instance applications rely on EFS to
+  <em>avoid data duplication</em>.
+</p>
+
+<p class="fs-base lh-base">
+  EFS <span class="fw-semibold">automatically scales</span> as data grows.
+  There is <u>no need</u> to provision capacity or worry about running out of space.
+</p>
+
+<ul class="fs-base lh-base">
+  <li><span class="fw-semibold">Multi-instance applications</span></li>
+  <li><u>Shared file storage</u></li>
+  <li>Dynamic workloads with <em>unpredictable growth</em></li>
+</ul>
+
+<div class="fw-semibold fs-base text-dark mt-4">
+  Glacier — <u>Storage for Data That Is Rarely Touched</u>
+</div>
+
+<p class="fs-base lh-base">
+  Glacier is designed for data that <span class="fw-semibold">must be kept</span> but is
+  <em>rarely accessed</em>.
+  It offers <mark>very low storage cost</mark> in exchange for
+  <span class="fw-semibold text-decoration-underline">slower retrieval times</span>.
+</p>
+
+<p class="fs-base lh-base">
+  This trade-off makes Glacier ideal for
+  <span class="fw-semibold">long-term backups</span>,
+  <span class="fw-semibold">compliance data</span>,
+  and <span class="fw-semibold">archives</span>.
+  Data stored in Glacier is <em>not meant for real-time access</em>.
+</p>
+
+<p class="fs-base lh-base">
+  In most cases, Glacier is <span class="fw-semibold">not used directly</span>.
+  Instead, data is moved automatically using
+  <span class="fw-semibold text-decoration-underline">S3 lifecycle policies</span>.
+</p>
+
+<ul class="fs-base lh-base">
+  <li><span class="fw-semibold">Long-term backups</span></li>
+  <li><u>Archival and compliance data</u></li>
+  <li>Historical records</li>
+</ul>
+
+<div class="fw-semibold fs-base text-dark mt-4">
+  How These Storage Types Are Typically Configured
+</div>
+
+<p class="fs-base lh-base fst-italic">
+  Understanding how each service is set up reinforces how it is meant to be used.
+</p>
+
+<div class="border-start border-width-3 border-primary bg-primary bg-opacity-10 rounded p-3 mt-3 mb-4 text-dark">
+  <div class="fw-semibold fs-base mb-2">EBS Configuration (Attached Storage)</div>
+  <ul class="fs-base lh-base">
+    <li>Open EC2 → Volumes</li>
+    <li>Create volume and choose <span class="fw-semibold">gp3</span></li>
+    <li>Match the Availability Zone</li>
+    <li>Attach to an EC2 instance</li>
+    <li><span class="fw-semibold">Format and mount</span> inside the instance</li>
+  </ul>
+  <p class="fs-base text-muted fst-italic mb-0">
+    Once attached, EBS behaves exactly like a local disk.
+  </p>
+</div>
+
+<div class="border-start border-width-3 border-success bg-success bg-opacity-10 rounded p-3 mt-3 mb-4 text-dark">
+  <div class="fw-semibold fs-base mb-2">EFS Configuration (Shared File System)</div>
+  <ul class="fs-base lh-base">
+    <li>Create a file system in Amazon EFS</li>
+    <li>Select the VPC</li>
+    <li>Create mount targets in multiple AZs</li>
+    <li>Attach security groups</li>
+    <li>Mount using the provided command</li>
+  </ul>
+  <p class="fs-base text-muted fst-italic mb-0">
+    Multiple instances can read and write simultaneously.
+  </p>
+</div>
+
+<div class="border-start border-width-3 border-warning bg-warning bg-opacity-10 rounded p-3 mt-3 mb-4 text-dark">
+  <div class="fw-semibold fs-base mb-2">Glacier Configuration (Archival Storage)</div>
+  <ul class="fs-base lh-base">
+    <li>Open S3 → Lifecycle rules</li>
+    <li>Create a lifecycle rule</li>
+    <li>Transition data to Glacier or Deep Archive</li>
+    <li>Save the rule</li>
+  </ul>
+  <p class="fs-base text-muted fst-italic mb-0">
+    Older data is automatically moved to cheaper storage.
+  </p>
+</div>
+
+<div class="border-start border-width-3 border-danger bg-danger bg-opacity-10 rounded p-3 mt-3 mb-4 text-dark">
+  <div class="fw-semibold fs-base mb-2">Common Mistakes to Avoid</div>
+  <ul class="fs-base lh-base mb-0">
+    <li><span class="fw-semibold">Using EBS</span> when shared access is needed</li>
+    <li><span class="fw-semibold">Using EFS</span> for databases</li>
+    <li>Expecting <span class="fw-semibold">fast access</span> from Glacier</li>
+    <li>Managing backups <em>manually</em></li>
+  </ul>
+</div>
+
+<div class="fw-semibold fs-base text-dark mt-4">
+  Final Thoughts
+</div>
+
+<p class="fs-base lh-base">
+  <span class="fw-semibold">EBS</span>, <span class="fw-semibold">EFS</span>, and
+  <span class="fw-semibold">Glacier</span> are <em>not competing services</em>.
+  Each exists to solve a <u>specific storage problem</u>.
+</p>
+
+<p class="fs-base lh-base">
+  Choosing correctly based on
+  <span class="fw-semibold">access patterns</span>,
+  <span class="fw-semibold">durability needs</span>,
+  and
+  <span class="fw-semibold">cost expectations</span>
+  prevents issues as systems grow.
+</p>

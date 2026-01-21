@@ -1,0 +1,211 @@
+<h5 class="fw-bold text-dark mb-2">
+    ALB vs NLB: When Each Matters (With Configuration Steps)
+</h5>
+
+<p class="text-muted fs-base lh-base">
+    AWS provides multiple load balancers, but in real projects the choice usually comes down to
+    <span class="fw-semibold">Application Load Balancer (ALB)</span> or
+    <span class="fw-semibold">Network Load Balancer (NLB)</span>.
+    They solve different problems and are configured differently.
+</p>
+
+<h4 class="fw-semibold text-dark mt-4">
+    When to Use ALB vs NLB (Quick Context)
+</h4>
+
+<div class="border-start border-width-3 border-primary mt-3 text-dark bg-primary bg-opacity-10 rounded p-3 m-y-3">
+    <h5 class="fw-semibold text-dark mb-2">Use ALB when:</h5>
+    <ul class="fs-base lh-base">
+        <li>Traffic is HTTP or HTTPS</li>
+        <li>Routing decisions depend on URL paths or hostnames</li>
+        <li>Applications are web-based or API-based</li>
+        <li>You need features like authentication, redirects, or WAF</li>
+    </ul>
+</div>
+
+<div class="border-start border-width-3 border-warning mt-3 text-dark bg-warning bg-opacity-10 rounded p-3 m-y-3">
+    <h5 class="fw-semibold text-dark mb-2">Use NLB when:</h5>
+    <ul class="fs-base lh-base">
+        <li>Traffic is TCP, UDP, or TLS</li>
+        <li>Ultra-low latency and high throughput are required</li>
+        <li>You need to preserve the client IP address</li>
+        <li>You are handling non-HTTP protocols</li>
+    </ul>
+</div>
+
+<h4 class="fw-semibold text-dark mt-4">
+    Application Load Balancer (ALB) – Configuration Steps
+</h4>
+
+<p class="fs-base lh-base">
+    ALB operates at <span class="fw-semibold">Layer 7 (Application Layer)</span>.
+</p>
+
+<h5 class="fw-semibold text-dark mt-3">
+    Step 1: Create a Target Group
+</h5>
+
+<ul class="fs-base lh-base">
+    <li>Go to <span class="fw-semibold">EC2 → Target Groups</span></li>
+    <li>Click <span class="fw-semibold">Create target group</span></li>
+</ul>
+
+<ul class="fs-base lh-base">
+    <li>Target type: Instance (or IP / Lambda if required)</li>
+    <li>Protocol: HTTP</li>
+    <li>Port: 80</li>
+    <li>Select the VPC</li>
+    <li>Health check path: <span class="fw-semibold">/</span></li>
+</ul>
+
+<h5 class="fw-semibold text-dark mt-3">
+    Step 2: Create the Application Load Balancer
+</h5>
+
+<ul class="fs-base lh-base">
+    <li>Go to <span class="fw-semibold">EC2 → Load Balancers</span></li>
+    <li>Click <span class="fw-semibold">Create load balancer</span></li>
+    <li>Select <span class="fw-semibold">Application Load Balancer</span></li>
+</ul>
+
+<ul class="fs-base lh-base">
+    <li>Name: web-alb</li>
+    <li>Scheme: Internet-facing</li>
+    <li>IP address type: IPv4</li>
+    <li>Select at least two subnets in different AZs</li>
+    <li>Security group: Allow HTTP (80) / HTTPS (443)</li>
+</ul>
+
+<h5 class="fw-semibold text-dark mt-3">
+    Step 3: Configure Listener Rules
+</h5>
+
+<ul class="fs-base lh-base">
+    <li>Listener protocol: HTTP</li>
+    <li>Port: 80</li>
+    <li>Forward traffic to the target group</li>
+</ul>
+
+<ul class="fs-base lh-base">
+    <li>Optional: Path-based routing (/api, /images)</li>
+    <li>Optional: Host-based routing (api.example.com)</li>
+</ul>
+
+<h5 class="fw-semibold text-dark mt-3">
+    Step 4: Attach ALB to Auto Scaling Group
+</h5>
+
+<ul class="fs-base lh-base">
+    <li>Open <span class="fw-semibold">Auto Scaling Groups</span></li>
+    <li>Select your ASG</li>
+    <li>Edit <span class="fw-semibold">Load balancing</span></li>
+    <li>Attach the ALB target group</li>
+</ul>
+
+<p class="fs-base text-success">
+    ✔ ALB now distributes HTTP traffic and replaces unhealthy instances automatically.
+</p>
+
+<h4 class="fw-semibold text-dark mt-4">
+    Network Load Balancer (NLB) – Configuration Steps
+</h4>
+
+<p class="fs-base lh-base">
+    NLB operates at <span class="fw-semibold">Layer 4 (Transport Layer)</span> and is optimized for performance.
+</p>
+
+<h5 class="fw-semibold text-dark mt-3">
+    Step 1: Create a Target Group
+</h5>
+
+<ul class="fs-base lh-base">
+    <li>Target type: Instance</li>
+    <li>Protocol: TCP</li>
+    <li>Port: 80 (or application port)</li>
+    <li>Health check protocol: TCP</li>
+</ul>
+
+<h5 class="fw-semibold text-dark mt-3">
+    Step 2: Create the Network Load Balancer
+</h5>
+
+<ul class="fs-base lh-base">
+    <li>Name: tcp-nlb</li>
+    <li>Scheme: Internet-facing or Internal</li>
+    <li>IP address type: IPv4</li>
+    <li>Select one subnet per AZ</li>
+    <li>Optional: Assign Elastic IPs for static IPs</li>
+</ul>
+
+<h5 class="fw-semibold text-dark mt-3">
+    Step 3: Configure Listener
+</h5>
+
+<ul class="fs-base lh-base">
+    <li>Protocol: TCP</li>
+    <li>Port: 80</li>
+    <li>Forward traffic to the target group</li>
+</ul>
+
+<p class="fs-base text-success">
+    ✔ NLB starts routing traffic immediately with minimal latency.
+</p>
+
+<h5 class="fw-semibold text-dark mt-3">
+    Step 4: Attach NLB to Auto Scaling Group
+</h5>
+
+<ul class="fs-base lh-base">
+    <li>Select the ASG</li>
+    <li>Edit Load balancing</li>
+    <li>Attach the NLB target group</li>
+</ul>
+
+<h4 class="fw-semibold text-dark mt-4">
+    Key Configuration Differences
+</h4>
+
+<ul class="fs-base lh-base">
+    <li><strong>OSI Layer:</strong> ALB (Layer 7) | NLB (Layer 4)</li>
+    <li><strong>Protocols:</strong> HTTP/HTTPS | TCP/UDP/TLS</li>
+    <li><strong>Routing:</strong> Path & Host based | None</li>
+    <li><strong>Security Groups:</strong> ALB – Yes | NLB – No</li>
+    <li><strong>Static IP:</strong> ALB – No | NLB – Yes</li>
+    <li><strong>Latency:</strong> ALB – Low | NLB – Ultra-low</li>
+    <li><strong>Client IP:</strong> Headers | Native</li>
+</ul>
+
+<h4 class="fw-semibold text-dark mt-4">
+    Common Real-World Patterns
+</h4>
+
+<ul class="fs-base lh-base">
+    <li>ALB + ASG → Web applications and APIs</li>
+    <li>NLB + ASG → Databases, messaging systems, custom TCP services</li>
+    <li>CloudFront → ALB → Global web traffic</li>
+    <li>NLB → ALB → Advanced hybrid setups</li>
+</ul>
+
+<div class="border-start border-width-3 border-danger text-dark bg-danger bg-opacity-10 rounded p-3 m-y-3">
+    <h4 class="fw-semibold text-dark mb-2">
+        Common Mistakes to Avoid
+    </h4>
+    <ul class="fs-base lh-base">
+        <li>Using NLB for HTTP routing</li>
+        <li>Using ALB for non-HTTP protocols</li>
+        <li>Forgetting to attach target groups to Auto Scaling Groups</li>
+        <li>Using only one subnet (no high availability)</li>
+        <li>Skipping health check configuration</li>
+    </ul>
+</div>
+
+
+
+<p class="fs-base lh-base">
+    ALB and NLB are not competitors; they are tools designed for different layers of the network stack.
+    Choosing the right one depends on protocol requirements, routing needs, performance goals, and overall architecture.
+</p>
+
+<p class="fs-base lh-base">
+    Understanding these differences helps build systems that are both scalable and efficient.
+</p>

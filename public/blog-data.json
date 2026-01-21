@@ -26,7 +26,7 @@
                         {
                             "id": "elb",
                             "title": "ALB vs NLB: When Each Matters",
-                            "content": "<h2>Layer 7 vs Layer 4</h2><p>Most applications work perfectly with ALB. NLB is used when performance and protocol control matter.</p>"
+                            "content": "ec2-alb-nlb.html"
                         }
                     ]
                 },
@@ -37,12 +37,12 @@
                         {
                             "id": "s3",
                             "title": "S3 Is More Than Storage",
-                            "content": "<h2>S3 as a Platform</h2><p>S3 is not a file system. It is a globally durable object store.</p><p>Once you understand this, many design decisions become obvious.</p>"
+                            "content": "s3-storage.html"
                         },
                         {
                             "id": "ebs-efs",
                             "title": "EBS vs EFS vs Glacier",
-                            "content": "<h2>Access Pattern First</h2><p>Choosing storage is about how data is accessed, not how large it is.</p>"
+                            "content": "ebs-efs-glacier.html"
                         }
                     ]
                 },

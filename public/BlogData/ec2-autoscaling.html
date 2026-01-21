@@ -88,3 +88,204 @@
     capacity and replacing unhealthy instances, they form a critical building block for scalable and resilient
     architectures on AWS.
 </p>
+
+
+<div class="p-2 bg-light border-left-3 border-black mt-4">
+
+    <h5 class="fw-bold text-dark mb-2">
+        Auto Scaling Groups – Actual Configuration Steps (AWS Console)
+    </h5>
+
+    <p class="text-muted fs-base lh-base">
+        This section explains how to create and configure an <span class="fw-semibold">Auto Scaling Group (ASG)</span>
+        from
+        scratch using the AWS Management Console.
+    </p>
+
+    <h4 class="fw-semibold text-dark mt-4">
+        Step 1: Prepare a Launch Template (Required)
+    </h4>
+
+    <p class="fs-base lh-base">
+        Auto Scaling Groups do not launch instances directly. Instead, they rely on a
+        <span class="fw-semibold">Launch Template</span> that defines how EC2 instances should be created.
+    </p>
+
+    <ul class="fs-base lh-base">
+        <li>Open <span class="fw-semibold">EC2 → Launch Templates</span></li>
+        <li>Click <span class="fw-semibold">Create launch template</span></li>
+    </ul>
+
+    <p class="fs-base lh-base">Provide the following details:</p>
+
+    <ul class="fs-base lh-base">
+        <li>Template name (e.g., <span class="fw-semibold">web-app-template</span>)</li>
+        <li>AMI (Amazon Linux 2023 or Ubuntu 22.04)</li>
+        <li>Instance type (e.g., t3.micro)</li>
+        <li>Key pair (for SSH access)</li>
+        <li>Security group (allow HTTP/HTTPS, restrict SSH)</li>
+        <li>(Optional) User Data to install software (Nginx, app startup script)</li>
+    </ul>
+
+    <p class="fs-base lh-base">
+        Click <span class="fw-semibold">Create launch template</span>.
+    </p>
+
+    <span class="fs-base text-default fw-semibold">
+        ✔ This template will be reused every time Auto Scaling launches a new instance.
+    </span>
+
+    <h4 class="fw-semibold text-dark mt-4">
+        Step 2: Create the Auto Scaling Group
+    </h4>
+
+    <ul class="fs-base lh-base">
+        <li>Open <span class="fw-semibold">EC2 → Auto Scaling Groups</span></li>
+        <li>Click <span class="fw-semibold">Create Auto Scaling group</span></li>
+        <li>Enter a name (e.g., <span class="fw-semibold">web-app-asg</span>)</li>
+        <li>Select the previously created Launch Template</li>
+    </ul>
+
+    <p class="fs-base lh-base">
+        Click <span class="fw-semibold">Next</span>.
+    </p>
+
+    <h4 class="fw-semibold text-dark mt-4">
+        Step 3: Choose Network and Subnets
+    </h4>
+
+    <ul class="fs-base lh-base">
+        <li>Select the <span class="fw-semibold">VPC</span></li>
+        <li>Choose multiple subnets (at least 2 in different Availability Zones)</li>
+    </ul>
+
+    <span class="fs-base text-default fw-semibold">
+        ✔ This enables high availability by distributing instances across zones.
+    </span>
+
+    <h4 class="fw-semibold text-dark mt-4">
+        Step 4: Attach Load Balancer (Recommended)
+    </h4>
+
+    <ul class="fs-base lh-base">
+        <li>Select <span class="fw-semibold">Attach to an existing load balancer</span></li>
+        <li>Choose <span class="fw-semibold">Application Load Balancer (ALB)</span></li>
+        <li>Select a target group (HTTP / HTTPS)</li>
+        <li>Enable <span class="fw-semibold">Elastic Load Balancing health checks</span></li>
+    </ul>
+
+    <p class="fs-base text-default fw-semibold">
+        ✔ Traffic is distributed automatically and unhealthy instances are replaced.
+    </p>
+
+    <h4 class="fw-semibold text-dark mt-4">
+        Step 5: Configure Group Size
+    </h4>
+
+    <ul class="fs-base lh-base">
+        <li>Minimum capacity: <span class="fw-semibold">1</span></li>
+        <li>Desired capacity: <span class="fw-semibold">2</span></li>
+        <li>Maximum capacity: <span class="fw-semibold">4</span></li>
+    </ul>
+
+    <ul class="fs-base text-muted">
+        <li>Minimum ensures availability</li>
+        <li>Desired represents normal operation</li>
+        <li>Maximum prevents runaway scaling and cost spikes</li>
+    </ul>
+
+    <h4 class="fw-semibold text-dark mt-4">
+        Step 6: Configure Scaling Policies
+    </h4>
+
+    <div class="border-start border-width-3 border-primary bg-primary  text-dark mt-3 bg-opacity-10 rounded p-3 m-y-3">
+        <h5 class="fw-semibold text-dark mb-2">
+            Option 1: Target Tracking (Recommended)
+        </h5>
+        <p class="fs-base lh-base">
+            Choose a <span class="fw-semibold">Target tracking scaling policy</span> and select
+            <span class="fw-semibold">Average CPU utilization</span>.
+        </p>
+        <p class="fs-base lh-base">
+            Example target value: <span class="fw-semibold">50%</span>
+        </p>
+        <p class="fs-base text-success">
+            ✔ AWS automatically adds or removes instances to maintain this level.
+        </p>
+    </div>
+
+    <div class="border-start border-width-3 border-warning bg-warning text-dark mt-3 bg-opacity-10 rounded p-3 m-y-3">
+        <h5 class="fw-semibold text-dark mb-2">
+            Option 2: Step Scaling (Advanced)
+        </h5>
+        <ul class="fs-base lh-base">
+            <li>CPU &gt; 70% → add 1 instance</li>
+            <li>CPU &lt; 30% → remove 1 instance</li>
+        </ul>
+        <p class="fs-base lh-base">
+            Target tracking is sufficient for most workloads.
+        </p>
+    </div>
+
+    <h4 class="fw-semibold text-dark mt-4">
+        Step 7: Enable Health Checks
+    </h4>
+
+    <ul class="fs-base lh-base">
+        <li>Health check type: EC2 or <span class="fw-semibold">ELB (recommended)</span></li>
+        <li>Health check grace period: e.g., <span class="fw-semibold">300 seconds</span></li>
+    </ul>
+
+    <span class="fs-base text-default fw-semibold">
+        ✔ This allows instances time to start before evaluation.
+    </span>
+
+    <h4 class="fw-semibold text-dark mt-4">
+        Step 8: Review and Create
+    </h4>
+
+    <ul class="fs-base lh-base">
+        <li>Review all configuration settings</li>
+        <li>Click <span class="fw-semibold">Create Auto Scaling Group</span></li>
+    </ul>
+
+    <p class="fs-base fw-semibold text-success">
+        Auto Scaling is now active.
+    </p>
+
+    <h4 class="fw-semibold text-dark mt-4">
+        What Happens After Creation?
+    </h4>
+
+    <ul class="fs-base lh-base">
+        <li>Instances launch to meet desired capacity</li>
+        <li>Instances are distributed across Availability Zones</li>
+        <li>Failed instances are replaced automatically</li>
+        <li>Scaling occurs based on traffic without manual intervention</li>
+    </ul>
+
+    <h4 class="fw-semibold text-dark mt-4">
+        Common Real-World Setup (Example)
+    </h4>
+
+    <ul class="fs-base lh-base">
+        <li>Instance type: t3.micro</li>
+        <li>Min / Desired / Max: 1 / 2 / 4</li>
+        <li>Load balancer: Application Load Balancer</li>
+        <li>Scaling metric: CPU 50%</li>
+        <li>Health check: ELB</li>
+    </ul>
+
+    <div class="border-start border-width-3 border-danger  text-dark bg-danger bg-opacity-10 rounded p-3 m-y-3">
+        <h4 class="fw-semibold text-dark mb-2">
+            Common Mistakes to Avoid
+        </h4>
+        <ul class="fs-base lh-base">
+            <li>Using only one subnet</li>
+            <li>Forgetting to attach a load balancer</li>
+            <li>Allowing SSH from 0.0.0.0/0</li>
+            <li>Setting maximum capacity too high</li>
+            <li>Not configuring a health check grace period</li>
+        </ul>
+    </div>
+</div>
