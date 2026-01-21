@@ -1,0 +1,90 @@
+<h5>Auto Scaling Groups (ASG) Explained</h5>
+
+<p class="text-muted fs-base">
+    As applications grow, traffic rarely stays constant. Some days are quiet, while others experience sudden spikes.
+    Auto Scaling Groups help manage these changes automatically without manual intervention.
+</p>
+
+<p class="fs-base">
+    An <span class="fw-semibold">Auto Scaling Group</span> is an AWS service that automatically adjusts the number of
+    EC2 instances running in response to demand. Instead of managing servers one by one, scaling is handled as a group.
+</p>
+
+<p class="fs-base">
+    The goal of an Auto Scaling Group is simple:
+    <span class="fw-semibold">keep the right number of servers running at all times</span>.
+</p>
+
+<h4 class="fw-semibold text-dark mt-3">Why Auto Scaling Groups Exist</h4>
+
+<p class="fs-base">
+    Manually adding or removing servers does not scale well in real-world systems. Traffic spikes can happen suddenly,
+    servers can fail, and demand can drop without warning.
+</p>
+
+<p class="fs-base">
+    Auto Scaling Groups solve this by continuously monitoring the system and reacting automatically. When demand
+    increases, new instances are launched. When demand decreases, extra instances are removed.
+</p>
+
+<h4 class="fw-semibold text-dark mt-3">How Auto Scaling Works</h4>
+
+<p class="fs-base">
+    Auto Scaling Groups work using a few core concepts:
+</p>
+
+<ul class="fs-base">
+    <li><span class="fw-semibold">Launch Template</span> – defines how new EC2 instances should be created</li>
+    <li><span class="fw-semibold">Minimum capacity</span> – the least number of instances that must always be running
+    </li>
+    <li><span class="fw-semibold">Desired capacity</span> – the normal number of instances to maintain</li>
+    <li><span class="fw-semibold">Maximum capacity</span> – the highest number of instances allowed</li>
+</ul>
+
+<p class="fs-base">
+    AWS automatically ensures the desired capacity is maintained, replacing unhealthy instances when needed.
+</p>
+
+<h4 class="fw-semibold text-dark mt-3">Scaling Policies</h4>
+
+<p class="fs-base">
+    Auto Scaling Groups use <span class="fw-semibold">scaling policies</span> to decide when to add or remove instances.
+    These policies are usually based on metrics such as CPU usage, request count, or custom CloudWatch metrics.
+</p>
+
+<ul class="fs-base">
+    <li><span class="fw-semibold">Scale out</span> – add instances when load increases</li>
+    <li><span class="fw-semibold">Scale in</span> – remove instances when load decreases</li>
+</ul>
+
+<p class="fs-base">
+    This ensures applications can handle traffic efficiently without over-provisioning resources.
+</p>
+
+<h4 class="fw-semibold text-dark mt-3">Health Checks and Self-Healing</h4>
+
+<p class="fs-base">
+    Auto Scaling Groups continuously perform health checks on instances. If an instance becomes unhealthy, it is
+    automatically terminated and replaced with a new one.
+</p>
+
+<p class="fs-base">
+    This self-healing behavior improves reliability and reduces downtime without manual effort.
+</p>
+
+<h4 class="fw-semibold text-dark mt-3">Common Use Cases</h4>
+
+<ul class="fs-base">
+    <li>Web applications with fluctuating traffic</li>
+    <li>APIs behind an Application Load Balancer</li>
+    <li>Microservices running on EC2</li>
+    <li>Systems requiring high availability</li>
+</ul>
+
+<h4 class="fw-semibold text-dark mt-3">Final Thoughts</h4>
+
+<p class="fs-base">
+    Auto Scaling Groups remove the need to constantly watch server load and react manually. By automatically adjusting
+    capacity and replacing unhealthy instances, they form a critical building block for scalable and resilient
+    architectures on AWS.
+</p>

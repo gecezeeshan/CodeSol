@@ -1,0 +1,190 @@
+<h5>EC2 Amazon Elastic Compute Cloud</h5>
+
+<p class="text-muted fs-base">
+    For many people starting with AWS, <span class="text-primary fw-semibold">EC2</span> can sound complicated at first.
+    Once the core idea is understood, it becomes clear that EC2 is actually very simple and practical.
+</p>
+
+<p class="fs-base">
+    EC2 (<span class="fw-semibold">Amazon Elastic Compute Cloud</span>) is a way to get a
+    <mark>virtual computer on the internet</mark>. Instead of buying a physical server and managing hardware,
+    AWS provides a ready-to-use server that can be launched within minutes.
+</p>
+
+<p class="fs-base">
+    It can be thought of as <span class="fw-semibold">renting a computer</span>, but only for the time it is needed.
+</p>
+
+<h4 class="fw-semibold text-dark mt-3">What Kind of Server Do You Get?</h4>
+
+<p class="fs-base">
+    One of the biggest advantages of EC2 is the <span class="fw-semibold">freedom of choice</span>. Users can select
+    the operating system they are most comfortable with:
+</p>
+
+<ul class="fs-base">
+    <li>Amazon Linux</li>
+    <li>Ubuntu 22.04 LTS</li>
+    <li>Red Hat Enterprise Linux</li>
+    <li>Windows Server</li>
+</ul>
+
+<p class="fs-base">
+    The server size and power level can also be chosen based on requirements:
+</p>
+
+<ul class="fs-base">
+    <li><span class="fw-semibold">t3.micro</span> – ideal for learning or a personal blog</li>
+    <li>Medium instances – suitable for production websites</li>
+    <li>Larger or specialized instances – designed for high CPU, memory, or GPU workloads</li>
+</ul>
+
+<p class="fs-base text-muted">
+    There is no need to overthink this choice initially. Instance types can always be changed later as requirements
+    grow.
+</p>
+
+<h4 class="fw-semibold text-dark mt-3">Storage, CPU, and Flexibility</h4>
+
+<p class="fs-base">
+    Every EC2 instance includes storage. AWS currently recommends <span class="fw-semibold">gp3</span> storage,
+    which is faster and more cost-effective than older options and works well for most websites and applications.
+</p>
+
+<p class="fs-base">
+    What truly makes EC2 powerful is <mark>flexibility</mark>. Today it might be used for a simple blog, and tomorrow
+    it could host a different operating system, database, or application stack. The setup is never locked into a single
+    choice.
+</p>
+
+<h4 class="fw-semibold text-dark mt-3">Why EC2 Makes Sense</h4>
+
+<p class="fs-base">
+    With EC2, users <span class="fw-semibold">only pay for what they use</span>. There is no need for expensive
+    upfront hardware investment. Resources can be scaled up during traffic spikes and scaled down when demand decreases,
+    making EC2 suitable for startups, growing applications, and personal projects.
+</p>
+
+<p class="fs-base">
+    Traffic patterns are not always predictable, and EC2 makes handling sudden increases far easier than rebuilding
+    infrastructure from scratch.
+</p>
+
+<h4 class="fw-semibold text-dark mt-3">What About Security?</h4>
+
+<p class="fs-base">
+    AWS places strong emphasis on security. EC2 instances run inside a <span class="fw-semibold">VPC</span>,
+    network access is controlled using <span class="fw-semibold">security groups</span>,
+    and permissions are managed through <span class="fw-semibold">IAM</span>.
+</p>
+
+<p class="fs-base text-muted">
+    In simple terms, users decide who can access their server and how that access is controlled.
+</p>
+
+<h4 class="fw-semibold text-dark mt-3">How You Actually Use EC2</h4>
+
+<p class="fs-base">
+    The setup process is straightforward: choose an AMI, select the instance size, configure storage and networking,
+    and then connect to the server using:
+</p>
+
+<ul class="fs-base">
+    <li><span class="fw-semibold">SSH</span> for Linux-based servers</li>
+    <li><span class="fw-semibold">RDP</span> for Windows-based servers</li>
+</ul>
+
+<p class="fs-base">
+    After connection, the server behaves like a normal computer. Software can be installed, applications deployed,
+    and services started as needed.
+</p>
+
+<h4 class="fw-semibold text-dark mt-3">Final Thoughts</h4>
+
+<p class="fs-base">
+    EC2 provides <span class="fw-semibold">control without long-term commitment</span>. It allows users to start small,
+    learn gradually, and scale only when necessary. This is why EC2 is often considered the
+    <span class="text-primary fw-semibold">first AWS service</span> to explore when beginning a cloud journey.
+</p>
+
+<div class="p-2 bg-light border-left-3 border-primary mt-4">
+    <span class="fs-lg fw-semibold text-dark">Quick Start Guide: Launch Your First EC2 Instance</span>
+
+    <h4 class="fw-semibold text-dark mt-3">Step 1: Login to AWS Console</h4>
+    <p class="fs-sm">Go to <a href="https://aws.amazon.com" class="link-primary"
+            target="_blank">https://aws.amazon.com</a>,
+        login to the <span class="fw-semibold">AWS Management Console</span>, and select a
+        region (for example: <span class="fw-semibold">us-east-1</span>).</p>
+    <p class="fs-sm text-muted">Always choose the region closest to your users.</p>
+    <h4 class="fw-semibold text-dark mt-3">Step 2: Launch an EC2 Instance</h4>
+    <ul class="fs-sm">
+        <li>Open the <span class="fw-semibold">EC2 Dashboard</span></li>
+        <li>Click <span class="fw-semibold">Launch Instance</span></li>
+    </ul>
+    <h4 class="fw-semibold text-dark mt-3">Step 3: Choose an AMI (Operating System)</h4>
+    <p class="fs-sm fw-semibold text-success">Recommended: Amazon Linux 2023</p>
+    <ul class="fs-sm">
+        <li>Free tier eligible</li>
+        <li>Secure and fast</li>
+        <li>Official AWS support</li>
+        <li>Perfect for beginners</li>
+    </ul>
+    <h4 class="fw-semibold text-dark mt-3">Step 4: Choose Instance Type</h4>
+    <ul class="fs-sm">
+        <li><span class="fw-semibold">t3.micro</span> – Learning / Blog</li>
+        <li><span class="fw-semibold">t3.small</span> – Personal website</li>
+        <li><span class="fw-semibold">t3.medium</span> – Production app</li>
+    </ul>
+    <p class="fs-sm fw-semibold text-primary">Recommended: t3.micro (Free Tier)</p>
+    <h4 class="fw-semibold text-dark mt-3">Step 5: Create a Key Pair</h4>
+    <ul class="fs-sm">
+        <li>Click <span class="fw-semibold">Create new key pair</span></li>
+        <li>Type: <span class="fw-semibold">RSA</span></li>
+        <li>Format: <span class="fw-semibold">.pem</span></li>
+        <li>Download and store it securely</li>
+    </ul>
+    <p class="fs-sm text-danger">⚠ This key is required to access your server.</p>
+    <h4 class="fw-semibold text-dark mt-3">Step 6: Configure Network &amp; Security Group</h4>
+    <p class="fs-sm fw-semibold">Inbound Rules:</p>
+    <ul class="fs-sm">
+        <li>SSH – Port 22 – Your IP</li>
+        <li>HTTP – Port 80 – Anywhere</li>
+        <li>HTTPS – Port 443 – Anywhere</li>
+    </ul>
+    <p class="fs-sm text-warning">Security Tip: Never allow SSH from everywhere.</p>
+    <h4 class="fw-semibold text-dark mt-3">Step 7: Configure Storage</h4>
+    <ul class="fs-sm">
+        <li>Root volume: <span class="fw-semibold">30 GB</span></li>
+        <li>Volume type: <span class="fw-semibold">gp3</span></li>
+    </ul>
+    <ul class="fs-sm text-muted">
+        <li>Faster</li>
+        <li>Cheaper</li>
+        <li>More control</li>
+    </ul>
+    <h4 class="fw-semibold text-dark mt-3">Step 8: Launch Instance</h4>
+    <p class="fs-sm fw-semibold text-success">Click Launch Instance Your server is now live.</p>
+    <h4 class="fw-semibold text-dark mt-3">Step 9: Connect to EC2 (SSH)</h4>
+    <p class="fs-sm fw-semibold">Linux / Mac:</p><code class="d-block fs-sm">chmod 400 mykey.pem</code><code
+        class="d-block fs-sm">ssh -i mykey.pem ec2-user@&lt;public-ip&gt;</code>
+    <p class="fs-sm fw-semibold mt-2">Windows (PowerShell):</p><code class="d-block
+    fs-sm">ssh -i mykey.pem ec2-user@&lt;public-ip&gt;</code>
+    <h4 class="fw-semibold text-dark mt-3">Step 10: Install Web Server (Example)</h4>
+    <p class="fs-sm fw-semibold">Install Nginx:</p><code class="d-block fs-sm">sudo yum update -y</code><code
+        class="d-block fs-sm">sudo yum install nginx -y</code><code class="d-block
+    fs-sm">sudo systemctl start nginx</code><code class="d-block fs-sm">sudo systemctl enable nginx</code>
+    <p class="fs-sm">Open browser: <span class="fw-semibold">http://&lt;public-ip&gt;</span></p>
+    <p class="fs-sm fw-semibold text-success">Your server is running!</p>
+    <h4 class="fw-semibold text-dark mt-3">Optional (Recommended Enhancements)</h4>
+    <ul class="fs-sm">
+        <li><span class="fw-semibold">Elastic IP</span> – Keeps IP fixed and prevents changes on restart</li>
+        <li><span class="fw-semibold">Monitoring</span> – Enable CloudWatch alarms for CPU and memory</li>
+        <li><span class="fw-semibold">IAM Role</span> – Avoid storing AWS keys on the server</li>
+    </ul>
+    <h4 class="fw-semibold text-dark mt-3">Cost Breakdown</h4>
+    <ul class="fs-sm">
+        <li><span class="fw-semibold">EC2 t3.micro</span> – $0 (Free Tier)</li>
+        <li><span class="fw-semibold">Storage</span> – ~$2</li>
+        <li><span class="fw-semibold">Elastic IP</span> – Free when attached</li>
+    </ul>
+</div>

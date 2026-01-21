@@ -1,0 +1,79 @@
+<h5 class="fw-bold text-dark mb-2">On-Demand, Reserved, and Spot Instances</h5>
+
+<p class="text-muted fs-base lh-base">
+    When working with EC2, pricing is often treated as a billing concern. In reality, it plays a direct role in how
+    systems are designed, scaled, and operated. AWS provides three primary pricing models for EC2 instances:
+    <span class="fw-semibold">On-Demand</span>, <span class="fw-semibold">Reserved</span>, and <span
+        class="fw-semibold">Spot</span>.
+    Each model exists to support a different type of workload and risk profile.
+</p>
+
+<p class="text-muted fs-base lh-base">
+    Understanding when to use each option helps control cost without compromising system reliability.
+</p>
+
+<div class="border-start border-width-3 border-primary bg-primary mt-4 text-dark  bg-opacity-10 rounded p-3 m-y-3">
+    <h4 class="fw-semibold text-dark mb-2">On-Demand Instances – Flexibility First</h4>
+    <p class="fs-base lh-base">
+        On-Demand instances are the most straightforward option. Compute capacity is paid for only while the instance is
+        running, with no long-term commitment.
+    </p>
+    <p class="fs-base lh-base">
+        This model is ideal when workloads are unpredictable or short-lived. It works well for development environments,
+        testing, proof-of-concept systems, and applications with irregular traffic patterns.
+    </p>
+    <p class="fs-base lh-base">
+        The main trade-off is cost. While On-Demand offers maximum flexibility, it is the most expensive option for
+        workloads
+        that run continuously.
+    </p>
+    <u class="fs-base text-muted">
+        On-Demand instances are best suited for scenarios where adaptability matters more than long-term savings.
+    </u>
+</div>
+
+<div class="border-start border-width-3 border-success bg-success mt-4 text-dark bg-opacity-10 rounded p-3 m-y-3">
+    <h4 class="fw-semibold text-dark mb-2">Reserved Instances – Predictability and Cost Savings</h4>
+    <p class="fs-base lh-base">
+        Reserved Instances are designed for workloads with <em>consistent</em> and <em>predictable</em> usage. By
+        committing to a one-year
+        or
+        three-year term, AWS provides a significant discount compared to On-Demand pricing.
+    </p>
+    <p class="fs-base lh-base">
+        This option is commonly used for databases, core backend services, and applications that run 24/7. Reserved
+        Instances
+        do not change how instances perform or behave; they simply reduce cost for capacity that is already expected to
+        be
+        used.
+    </p>
+    <p class="fs-base lh-base">
+        The trade-off is reduced flexibility. Once capacity is reserved, changing instance families or usage patterns
+        may
+        limit the benefits of the reservation.
+    </p>
+    <u class="fs-base text-muted">
+        Reserved Instances are most effective when system behavior is stable and well understood.
+    </u>
+</div>
+
+<div class="border-start border-width-3 border-warning bg-warning mt-4 text-dark bg-opacity-10 rounded p-3 m-y-3">
+    <h4 class="fw-semibold text-dark mb-2">Spot Instances – Cost Efficiency with Interruption Risk</h4>
+    <p class="fs-base lh-base">
+        Spot Instances use <em>unused AWS capacity</em> and offer the <span class="fw-semibold">lowest pricing</span>
+        among the three models.
+        However, these
+        instances
+        can be interrupted by AWS with short notice when capacity is needed elsewhere.
+    </p>
+    <p class="fs-base lh-base">
+        Because of this, Spot Instances are suitable only for workloads that can tolerate interruptions. Common use
+        cases
+        include <span class="fw-semibold"> batch processing</span>, <span class="fw-semibold"> data analysis</span>,
+        <span class="fw-semibold"> background jobs</span>, and <span class="fw-semibold"> CI/CD pipelines</span>.
+    </p>
+    <p class="fs-base lh-base">
+        Spot Instances encourage fault-tolerant and resilient system design. When used correctly, they can dramatically
+        reduce infrastructure costs without affecting critical services.
+    </p>
+</div>
