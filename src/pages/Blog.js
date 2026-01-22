@@ -36,7 +36,7 @@ export default function Blog() {
 		<div className="d-flex align-items-start flex-column flex-md-row">
 
 			{/* SIDEBAR */}
-			<div className="sidebar sidebar-light bg-white sidebar-component sidebar-component-left border-0 shadow-0">
+			<div className="sidebar sidebar-light bg-white sidebar-component sidebar-component-left border-0 shadow 0 sidebar-expand-md"> 
 				<div className="sidebar-content">
 
 					<ul
